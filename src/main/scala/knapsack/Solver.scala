@@ -1,9 +1,5 @@
 package knapsack
 
-import java.io.File
-import scala.util.control.NonFatal
-
-
 /**
  * Created by Aleksey on 07/03/14.
  */
@@ -99,7 +95,7 @@ object Solver {
     builder ++= " 0\n"
     builder ++= (taken mkString " ")
 
-    builder.toString
+    builder.toString()
   }
 
 
