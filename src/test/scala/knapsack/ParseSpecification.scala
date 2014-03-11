@@ -6,7 +6,7 @@ package knapsack
 
 import org.scalacheck._
 import Prop.forAll
-import knapsack.Solver.Data
+import knapsack.KnapsackSolver.Data
 
 object ParseSpecification extends Properties("Parsing") with DataGen {
 

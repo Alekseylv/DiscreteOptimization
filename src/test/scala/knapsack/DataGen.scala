@@ -5,7 +5,7 @@ package knapsack
  */
 
 import org.scalacheck._
-import knapsack.Solver._
+import knapsack.KnapsackSolver._
 
 trait DataGen {
 
@@ -21,7 +21,7 @@ trait DataGen {
   }
 
   // input generator
-  val inputs: Gen[Data] = Gen.choose(3, 100).map(x => Solver.parseLines(getLines(x)))
+  val inputs: Gen[Data] = Gen.choose(3, 100).map(x => KnapsackSolver.parseLines(getLines(x)))
 
   val numberSequences: Gen[List[Int]] = Gen.choose(5, 100).map(numberToList(_))
 

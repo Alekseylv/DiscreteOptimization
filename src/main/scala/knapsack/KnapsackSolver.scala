@@ -3,7 +3,21 @@ package knapsack
 /**
  * Created by Aleksey on 07/03/14.
  */
-object Solver {
+object KnapsackSolver {
+
+  def main(args: Array[String]) {
+    if (args.length < 1) {
+      println( """
+                 |This test requires an input file.
+                 | Please select one from the data directory.(i.e.python solver.py./ data / ks_4_0)
+                 | """)
+    } else {
+      val source = io.Source.fromFile(args(0))
+      solveIt(source.getLines().toList)
+
+      source.close()
+    }
+  }
 
   // (Index, Value, Weight, Value/Weight)
   type Data = Array[(Int, Int, Int, Double)]
@@ -53,20 +67,6 @@ object Solver {
     })
 
     ((0, 0, 0, 0.0) :: data.sortBy(_._4)).toArray
-  }
-
-  def main(args: Array[String]) {
-    if (args.length < 1) {
-      println( """
-                 |This test requires an input file.
-                 | Please select one from the data directory.(i.e.python solver.py./ data / ks_4_0)
-                 | """)
-    } else {
-      val source = io.Source.fromFile(args(0))
-      solveIt(source.getLines().toList)
-
-      source.close()
-    }
   }
 
   def addDigit(digit: Int, sequence: List[Int]): List[Int] = {
