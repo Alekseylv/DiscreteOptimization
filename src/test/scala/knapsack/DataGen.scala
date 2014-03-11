@@ -3,9 +3,9 @@ package knapsack
 /**
  * Created by Aleksey on 08/03/14.
  */
+
 import org.scalacheck._
 import knapsack.Solver._
-import knapsack.Solver
 
 trait DataGen {
 
@@ -15,7 +15,7 @@ trait DataGen {
     for (i <- 0 to n) yield arb.sample.get + " " + arb.sample.get
   }.toList
 
-  def numberToList(times:Int):List[Int] = {
+  def numberToList(times: Int): List[Int] = {
     if (times <= 0) Nil
     else Gen.choose(0, 1).sample.get :: numberToList(times - 1)
   }
