@@ -34,7 +34,7 @@ object SolutionSpecification extends Properties("Properties for valid solutions"
     isTrue
   }
 
-  property("Solution must be feasible") = forAll(smallGraphs) {
+  property("Solution must be valid (no two adjacent vertices have same color)") = forAll(smallGraphs) {
     g: Graph =>
       val solution = ColoringSolver.solution(g)
       (0 to solution._2.size - 1).forall(x => distinctAdjecent(x, solution._2.toArray, g))
