@@ -1,13 +1,12 @@
 package coloring
 
-import edu.princeton.cs.algs4.Graph
-
 /**
  * Created by Aleksey on 11/03/14.
  */
 object ColoringSolver {
 
   type Solution = (Int, TraversableOnce[Int])
+  type Input = (Graph, Array[(Int, Int)])
 
   def main(args: Array[String]) {
     if (args.length < 1) {
@@ -28,6 +27,7 @@ object ColoringSolver {
     println(prepareSolution(solution(parseInput(iter))))
   }
 
+
   def parseInput(iter: Iterator[Array[Int]]): Graph = {
     val input = iter.next()
     val V = input(0)
@@ -36,7 +36,7 @@ object ColoringSolver {
 
     while (iter.nonEmpty) {
       val next = iter.next()
-      graph addEdge(next(0), next(1))
+      graph ++(next(0), next(1))
     }
 
     graph
@@ -51,8 +51,8 @@ object ColoringSolver {
     build.toString()
   }
 
-  def solution(graph: Graph): Solution = {
-    new Solve(graph).solution
+  def solution(input: Graph): Solution = {
+    new Solve(input).solution
   }
 
 

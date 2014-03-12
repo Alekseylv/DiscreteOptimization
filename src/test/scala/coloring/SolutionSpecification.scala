@@ -6,14 +6,13 @@ package coloring
 
 import org.scalacheck._
 import Prop.forAll
-import edu.princeton.cs.algs4.Graph
 
 object SolutionSpecification extends Properties("Properties for valid solutions") with GraphGen {
 
   property("Solution must have the proper length") = forAll(graphs) {
     g: Graph =>
       val solution = ColoringSolver.solution(g)
-      solution._2.size == g.V()
+      solution._2.size == g.V
   }
 
   property("Solution must contain only specified amount of distinct colors") = forAll(graphs) {
@@ -23,15 +22,9 @@ object SolutionSpecification extends Properties("Properties for valid solutions"
   }
 
   def distinctAdjecent(v: Int, result: Array[Int], graph: Graph): Boolean = {
-    val iter = graph.adj(v).iterator()
     val vertexColor = result(v)
-    var isTrue = true
 
-    while (iter.hasNext && isTrue) {
-      isTrue &&= result(iter.next()) != vertexColor
-    }
-
-    isTrue
+    graph.adjacent(v).foldRight(true)((a, b) => b && result(a) != vertexColor)
   }
 
   property("Solution must be valid (no two adjacent vertices have same color)") = forAll(smallGraphs) {
