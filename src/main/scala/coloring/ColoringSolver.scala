@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.Graph
  */
 object ColoringSolver {
 
-  type Solution = (Int, collection.TraversableOnce[Int])
+  type Solution = (Int, TraversableOnce[Int])
 
   def main(args: Array[String]) {
     if (args.length < 1) {
@@ -42,11 +42,6 @@ object ColoringSolver {
     graph
   }
 
-  def solution(graph: Graph): Solution = {
-    (graph.V(), 1 to graph.V())
-  }
-
-
   def prepareSolution(result: Solution): String = {
     val build: StringBuilder = new StringBuilder
     build ++= result._1.toString
@@ -55,4 +50,10 @@ object ColoringSolver {
 
     build.toString()
   }
+
+  def solution(graph: Graph): Solution = {
+    new Solve(graph).solution
+  }
+
+
 }
