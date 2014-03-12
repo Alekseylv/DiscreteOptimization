@@ -31,11 +31,12 @@ class Solve(val input: Graph) {
     }
   }
 
-  def solution: Solution = {
+  def sortedByVertexLocality:TraversableOnce[(Int,Int)] = {
+    (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(- _._2) // hack to sort desc
+  }
 
-    for (i <- 0 to graph.V - 1) {
-      assignColor(i)
-    }
+  def solution: Solution = {
+    sortedByVertexLocality.foreach(x => assignColor(x._1))
 
     (colors.size, result)
   }
