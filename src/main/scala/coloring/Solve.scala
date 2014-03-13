@@ -10,12 +10,13 @@ import scala.collection.mutable
 class Solve(val input: Graph) {
 
   val graph = input
-  val colors = mutable.Set[Int]()
   val result = new Array[Int](graph.V)
   val allColors = (1 to Int.MaxValue).iterator
 
+  val map = new mutable.HashMap[Int, Int]
+
   private def assignColor(v: Int) {
-    val available = colors.clone()
+    val available = mutable.Set.empty ++ map.keySet
     val iter = graph.adjacent(v).iterator
 
     while (iter.hasNext) {
@@ -25,20 +26,23 @@ class Solve(val input: Graph) {
     if (available.isEmpty) {
       val col = allColors.next()
       result(v) = col
-      colors += col
+      map += ((col, 1))
     } else {
-      result(v) = available.head
+      val color = available.tail.fold(available.head)((a, b) => if (map(a) > map(b)) a else b)
+      result(v) = color
+      map += ((color, map(color) + 1))
     }
   }
 
-  def sortedByVertexLocality:TraversableOnce[(Int,Int)] = {
+  def sortedByVertexLocality: TraversableOnce[(Int, Int)] = {
     (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(- _._2) // hack to sort desc
   }
 
   def solution: Solution = {
+
     sortedByVertexLocality.foreach(x => assignColor(x._1))
 
-    (colors.size, result)
+    (map.keySet.size, result)
   }
 
 
