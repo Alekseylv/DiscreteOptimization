@@ -66,10 +66,10 @@ class Solve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
     else largestFirst(index)
   }
 
-  var emptyIterCount: Int = 6
+  var emptyIterCount: Int = 20
 
   def increase = {
-    emptyIterCount = 6
+    emptyIterCount = 20
     true
   }
 
@@ -87,7 +87,7 @@ class Solve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
     var otherSolution = otherSolve.internalSolve
 
     while (solution._3 < otherSolution._3 && increase || decrease) {
-      if (solution._3 < otherSolution._3) solution = otherSolution
+      solution = otherSolution
       otherSolve = new Solve(graph, heuristic(otherSolve.vertexLocalityIndex(solution)))
       otherSolution = otherSolve.internalSolve
     }
