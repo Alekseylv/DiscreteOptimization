@@ -2,12 +2,14 @@ package coloring
 
 import coloring.ColoringSolver.Solution
 import scala.collection.mutable
+import scala.collection.immutable.IndexedSeq
+import scala.util.Random
 
 
 /**
  * Created by Aleksey on 12/03/14.
  */
-class Solve(val input: Graph) {
+class Solve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
 
   val graph = input
   val result = new Array[Int](graph.V)
@@ -34,15 +36,64 @@ class Solve(val input: Graph) {
     }
   }
 
-  def sortedByVertexLocality: TraversableOnce[(Int, Int)] = {
-    (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(- _._2) // hack to sort desc
+  private def vertexLocalityIndex(solution: Solution): Map[Int, IndexedSeq[Int]] = {
+    (0 to result.length - 1).groupBy(x => result(x))
+  }
+
+  private def largestFirst(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
+    index.values.toList.sortBy(-_.length).flatten
+  }
+
+  private def random(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
+    Random.shuffle(index.values).flatten.toSeq
+  }
+
+  private def reversed(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
+    index.values.map(_.reverse).flatten.toSeq
+  }
+
+  private def internalSolve: Solution = {
+    nodeLocalityIndex.foreach(x => assignColor(x))
+
+    (map.keySet.size, result, map.values.map(x => x * x).fold(0)(_ + _).toLong)
+  }
+
+  private def heuristic(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
+    val probability = Random.nextInt(130)
+
+    if (probability < 30) random(index)
+    else if (probability < 80) reversed(index)
+    else largestFirst(index)
+  }
+
+  var emptyIterCount: Int = 6
+
+  def increase = {
+    emptyIterCount = 6
+    true
+  }
+
+  def decrease = {
+    emptyIterCount -= 1
+    emptyIterCount > 0
   }
 
   def solution: Solution = {
+    nodeLocalityIndex.foreach(x => assignColor(x))
 
-    sortedByVertexLocality.foreach(x => assignColor(x._1))
+    var solution = (map.keySet.size, result, map.values.fold(0)((a, b) => b * b + a).toLong)
 
-    (map.keySet.size, result)
+    var otherSolve = new Solve(graph, reversed(vertexLocalityIndex(solution)))
+    var otherSolution = otherSolve.internalSolve
+
+    while (solution._3 < otherSolution._3 && increase || decrease) {
+      if (solution._3 < otherSolution._3) solution = otherSolution
+      otherSolve = new Solve(graph, heuristic(otherSolve.vertexLocalityIndex(solution)))
+      otherSolution = otherSolve.internalSolve
+    }
+
+
+    solution
   }
 
 

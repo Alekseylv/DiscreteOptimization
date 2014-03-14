@@ -5,7 +5,8 @@ package coloring
  */
 object ColoringSolver {
 
-  type Solution = (Int, TraversableOnce[Int])
+  // size, sequence of colors, objective value
+  type Solution = (Int, Array[Int], Long)
   type Input = (Graph, Array[(Int, Int)])
 
   def main(args: Array[String]) {
@@ -51,8 +52,12 @@ object ColoringSolver {
     build.toString()
   }
 
+  def sortedByVertexLocality(graph: Graph): TraversableOnce[Int] = {
+    (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(-_._2).map(_._1) // hack to sort desc
+  }
+
   def solution(input: Graph): Solution = {
-    new Solve(input).solution
+    new Solve(input, sortedByVertexLocality(input)).solution
   }
 
 
