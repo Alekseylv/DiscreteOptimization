@@ -57,7 +57,7 @@ object ColoringSolver {
   }
 
   def solution(input: Graph): Solution = {
-    new Solve(input, sortedByVertexLocality(input)).solution
+    new IterativeGreedySolve(input, sortedByVertexLocality(input)).solution
   }
 
 
