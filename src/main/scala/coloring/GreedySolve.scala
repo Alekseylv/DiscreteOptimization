@@ -38,7 +38,7 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int])
     }
   }
 
-  def vertexLocalityIndex(solution: Solution): Map[Int, IndexedSeq[Int]] = {
+  def vertexLocalityIndex(): Map[Int, IndexedSeq[Int]] = {
     (0 to result.length - 1).groupBy(x => result(x))
   }
 

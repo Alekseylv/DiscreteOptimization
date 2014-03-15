@@ -17,13 +17,13 @@ class KempeIterative(input: Graph, nodeLocalityIndex: TraversableOnce[Int]) exte
   override def solution: Solution = {
     var solution = super.solution
 
-    var otherSolve: GreedySolve = new KempeSolve(graph, heuristic(vertexLocalityIndex(solution)))
+    var otherSolve: GreedySolve = new KempeSolve(graph, heuristic(vertexLocalityIndex()))
     var otherSolution = otherSolve.solution
 
     while (solution._3 < otherSolution._3 || decrease) {
       if (solution._3 < otherSolution._3)
         solution = otherSolution
-      otherSolve = new KempeSolve(graph, heuristic(otherSolve.vertexLocalityIndex(solution)))
+      otherSolve = new KempeSolve(graph, heuristic(otherSolve.vertexLocalityIndex()))
 
       otherSolution = otherSolve.solution
     }
