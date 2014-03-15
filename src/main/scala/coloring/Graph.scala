@@ -6,7 +6,7 @@ package coloring
 
 import scala.collection.mutable._
 import scala.collection.mutable
-import edu.princeton.cs.introcs.StdRandom
+import scala.util.Random
 
 
 object Graph {
@@ -19,10 +19,11 @@ object Graph {
 
     val G = new Graph(V)
     val set = mutable.Set.empty[Edge]
+    val random = new Random
 
     while (G.E < E) {
-      val v = StdRandom.uniform(V)
-      val w = StdRandom.uniform(V)
+      val v = random.nextInt(V)
+      val w = random.nextInt(V)
       val e = (v, w)
 
       if ((v != w) && !set.contains(e)) {
@@ -66,23 +67,20 @@ class Graph(val V: Int, var E: Int = 0) {
     adj(v)
   }
 
-  //  public String toString() {
-  //    StringBuilder s = new StringBuilder();
-  //    String NEWLINE = System.getProperty("line.separator");
-  //    s.append(V + " vertices, " + E + " edges " + NEWLINE);
-  //    for (int v = 0;
-  //    v < V;
-  //    v ++)
-  //    {
-  //      s.append(v + ": ");
-  //      for (int w: adj[v])
-  //      {
-  //        s.append(w + " ");
-  //      }
-  //      s.append(NEWLINE);
-  //    }
-  //    return s.toString();
-  //  }
+  override def toString() = {
+    val s = new mutable.StringBuilder
+    val newLine = System.getProperty("line.separator")
+    s.append(V + " vertices, " + E + " edges " + newLine)
+
+    (0 to V - 1) foreach {
+      x =>
+        s.append(x + ": ")
+        adj(x).foreach(y => s.append(y + " "))
+        s.append(newLine)
+    }
+
+    s.toString()
+  }
 
 
 }
