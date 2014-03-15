@@ -31,8 +31,19 @@
     <orderEntry type="library" scope="TEST" name="SBT: org.scala-sbt:test-interface:1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalacheck:scalacheck_2.10:1.11.3" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scalatest:scalatest_2.10:2.0" level="project" />
-    <orderEntry type="library" name="algs4-package" level="project" />
-    <orderEntry type="library" name="stdlib-package" level="project" />
+    <orderEntry type="module-library">
+      <library name="SBT: unmanaged-jars">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../lib/stdlib-package.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../lib/algs4-package.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../lib/algs4-package.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../lib/stdlib-package.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 
