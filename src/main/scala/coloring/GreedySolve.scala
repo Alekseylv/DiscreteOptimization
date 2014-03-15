@@ -54,6 +54,14 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int])
     index.values.map(_.reverse).flatten.toSeq
   }
 
+  def heuristic(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
+    val probability = Random.nextInt(130)
+
+    if (probability < 30) random(index)
+    else if (probability < 80) reversed(index)
+    else largestFirst(index)
+  }
+
   def solution: Solution = {
     nodeLocalityIndex.foreach(x => assignColor(x))
 

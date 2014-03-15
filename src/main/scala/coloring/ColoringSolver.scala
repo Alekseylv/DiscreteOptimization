@@ -57,7 +57,7 @@ object ColoringSolver {
   }
 
   def solution(input: Graph): Solution = {
-    new IterativeGreedySolve(input, sortedByVertexLocality(input)).solution
+    new KempeIterative(input, sortedByVertexLocality(input)).solution
   }
 
 
