@@ -45,7 +45,7 @@ class Solve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
   }
 
   private def random(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
-    Random.shuffle(index.values).flatten.toSeq
+    Random.shuffle(index.values).map(Random.shuffle(_)).flatten.toSeq
   }
 
   private def reversed(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
@@ -55,7 +55,7 @@ class Solve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
   private def internalSolve: Solution = {
     nodeLocalityIndex.foreach(x => assignColor(x))
 
-    (map.keySet.size, result, map.values.map(x => x * x).fold(0)(_ + _).toLong)
+    (map.keySet.size, result, map.values.fold(0)((a, b) => b * b + a).toLong)
   }
 
   private def heuristic(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
@@ -67,11 +67,6 @@ class Solve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
   }
 
   var emptyIterCount: Int = 20
-
-  def increase = {
-    emptyIterCount = 20
-    true
-  }
 
   def decrease = {
     emptyIterCount -= 1
@@ -86,12 +81,11 @@ class Solve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
     var otherSolve = new Solve(graph, reversed(vertexLocalityIndex(solution)))
     var otherSolution = otherSolve.internalSolve
 
-    while (solution._3 < otherSolution._3 && increase || decrease) {
+    while (solution._3 < otherSolution._3 || decrease) {
       solution = otherSolution
       otherSolve = new Solve(graph, heuristic(otherSolve.vertexLocalityIndex(solution)))
       otherSolution = otherSolve.internalSolve
     }
-
 
     solution
   }

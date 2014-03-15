@@ -4,7 +4,6 @@ package coloring
  * Created by Aleksey on 12/03/14.
  */
 
-import scala.collection.mutable._
 import scala.collection.mutable
 import scala.util.Random
 
@@ -40,7 +39,7 @@ class Graph(val V: Int, var E: Int = 0) {
 
   import Graph.Edge
 
-  private val adj: Array[MutableList[Int]] = Array.fill(V)(mutable.MutableList.empty)
+  private val adj: Array[mutable.MutableList[Int]] = Array.fill(V)(mutable.MutableList.empty)
 
   if (V < 0) throw new IllegalArgumentException("Number of vertices must be nonnegative")
 
@@ -62,11 +61,16 @@ class Graph(val V: Int, var E: Int = 0) {
    * @param v the vertex
    * @throws java.lang.IndexOutOfBoundsException unless 0 <= v < V
    */
-  def adjacent(v: Int): MutableList[Int] = {
+  def adjacent(v: Int): mutable.MutableList[Int] = {
     if (v < 0 || v >= V) throw new IndexOutOfBoundsException()
     adj(v)
   }
 
+
+  /**
+   * Useful for small graph instances
+   * @return graph string representation
+   */
   override def toString() = {
     val s = new mutable.StringBuilder
     val newLine = System.getProperty("line.separator")
