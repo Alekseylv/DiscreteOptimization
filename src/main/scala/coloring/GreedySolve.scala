@@ -10,7 +10,7 @@ import scala.util.Random
 import scala.collection.Set
 
 
-class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int], val result: Array[Int]) {
+class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int], val result: Array[Int]) extends Solve {
 
   def this(input: Graph, nodeIndex: TraversableOnce[Int]) = this(input, nodeIndex, new Array[Int](input.V))
 
@@ -72,7 +72,7 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int],
     else largestFirst(index)
   }
 
-  def solution: Solution = {
+  override def solution: Solution = {
     nodeLocalityIndex.foreach(x => assignColor(x))
 
     (map.keySet.size, result, map.values.fold(0)((a, b) => b * b + a).toLong)

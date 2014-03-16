@@ -7,7 +7,7 @@ import coloring.ColoringSolver.Solution
 /**
  * Created by Aleksey on 15/03/14.
  */
-class KempeSearch(val graph: Graph, resultInput: Array[Int], colorMap: mutable.HashMap[Int, Int]) {
+class KempeSearch(val graph: Graph, resultInput: Array[Int], colorMap: mutable.HashMap[Int, Int]) extends Solve {
 
   val result = resultInput.clone()
   var map = colorMap.clone()
@@ -21,7 +21,7 @@ class KempeSearch(val graph: Graph, resultInput: Array[Int], colorMap: mutable.H
     graph.adjacent(i).filter(x => result(x) == result(i))
   }
 
-  def solution: Solution = {
+  override def solution: Solution = {
 
     //    val color = map.fold((0,0))((a,b) => if (a._2 < b._2) a else b)._1
     //    (0 to graph.V).filter(_ == color).foreach{
