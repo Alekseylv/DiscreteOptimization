@@ -5,13 +5,9 @@ import coloring.ColoringSolver._
 /**
  * Created by Aleksey on 15/03/14.
  */
-class GreedyIterative(input: Graph, nodeLocalityIndex: TraversableOnce[Int]) extends GreedySolve(input, nodeLocalityIndex) {
+class GreedyIterative(input: Graph, nodeIndex: TraversableOnce[Int]) extends GreedySolve(input, nodeIndex) {
 
-  def this(graph: Graph) = {
-    this(graph, (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(-_._2).map(_._1))
-  }
-
-  var emptyIterCount: Int = 200
+  var emptyIterCount: Int = 2000
 
   def decrease = {
     emptyIterCount -= 1

@@ -6,15 +6,16 @@ package coloring
 
 import scala.collection.mutable
 import coloring.ColoringSolver.Solution
-import scala.util.Random
 import scala.collection.Set
 
 
-class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int], val result: Array[Int]) extends Solve {
+class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int], val result: Array[Int]) extends Greedy {
 
   def this(input: Graph, nodeIndex: TraversableOnce[Int]) = this(input, nodeIndex, new Array[Int](input.V))
 
-  import scala.collection.immutable.IndexedSeq
+  def this(graph: Graph) = {
+    this(graph, (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(-_._2).map(_._1), new Array[Int](graph.V))
+  }
 
   val graph = input
   val allColors = (1 to Int.MaxValue).iterator
@@ -48,29 +49,7 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int],
     }
   }
 
-  def vertexLocalityIndex(): Map[Int, IndexedSeq[Int]] = {
-    (0 to result.length - 1).groupBy(x => result(x))
-  }
 
-  def largestFirst(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
-    index.values.toList.sortBy(-_.length).flatten
-  }
-
-  def random(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
-    Random.shuffle(index.values).map(Random.shuffle(_)).flatten.toSeq
-  }
-
-  def reversed(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
-    index.values.map(_.reverse).flatten.toSeq
-  }
-
-  def heuristic(index: Map[Int, IndexedSeq[Int]]): Seq[Int] = {
-    val probability = Random.nextInt(130)
-
-    if (probability < 30) random(index)
-    else if (probability < 80) reversed(index)
-    else largestFirst(index)
-  }
 
   override def solution: Solution = {
     nodeLocalityIndex.foreach(x => assignColor(x))

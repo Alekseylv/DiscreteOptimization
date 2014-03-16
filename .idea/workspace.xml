@@ -6,11 +6,14 @@
     <bookmark url="jar://$PROJECT_DIR$/lib/algs4-package.jar!/edu/princeton/cs/algs4/Digraph.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="minor fixes to iterative greedy&#10;added simulated annealing">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/coloring/Solve.scala" />
+    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="added generic Solve trait">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/coloring/Greedy.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/Solve.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/Solve.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Scala Knapsack, Assignment 1.iws" />
@@ -37,8 +40,8 @@
       <file leaf-file-name="ColoringSolver.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="990">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="587" max-vertical-offset="990">
+              <caret line="52" column="3" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -47,11 +50,32 @@
       <file leaf-file-name="KempeSearch.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-              <caret line="9" column="106" selection-start-line="9" selection-start-column="106" selection-end-line="9" selection-end-column="106" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="750">
+              <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
               <folding>
                 <element signature="e#18#42#0" expanded="true" />
-                <marker date="1394963822000" expanded="true" signature="652:1302" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Solve.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/Solve.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Greedy.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/Greedy.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="720">
+              <caret line="22" column="18" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="18" />
+              <folding>
+                <element signature="e#18#49#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,8 +84,8 @@
       <file leaf-file-name="GreedySolve.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1305">
-              <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="98" max-vertical-offset="990">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="e#62#93#0" expanded="true" />
               </folding>
@@ -72,8 +96,8 @@
       <file leaf-file-name="SimulatedAnnealingSolve.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20705521" vertical-offset="0" max-vertical-offset="652">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7592025" vertical-offset="0" max-vertical-offset="652">
+              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -92,22 +116,12 @@
       <file leaf-file-name="GreedyIterative.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="660">
-              <caret line="7" column="92" selection-start-line="7" selection-start-column="92" selection-end-line="7" selection-end-column="92" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <caret line="18" column="0" selection-start-line="17" selection-start-column="3" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <marker date="1394963452000" expanded="true" signature="764:798" placeholder="{...}" />
-                <marker date="1394963452000" expanded="true" signature="798:885" placeholder="{...}" />
+                <marker date="1394966890000" expanded="true" signature="616:650" placeholder="{...}" />
+                <marker date="1394966890000" expanded="true" signature="650:737" placeholder="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Graph.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/Graph.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1425">
-              <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -117,16 +131,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="615">
               <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphGen.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/coloring/GraphGen.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="405">
-              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -174,12 +178,13 @@
         <option value="$PROJECT_DIR$/src/main/scala/coloring/Graph.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/LocalSearch.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/KempeIterative.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/KempeSolve.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/Solve.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/coloring/Greedy.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala" />
       </list>
     </option>
@@ -973,7 +978,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="refactor: rename, style fix" />
     <MESSAGE value="added second assignment" />
     <MESSAGE value="added unmanaged libs" />
     <MESSAGE value="idea project file updates" />
@@ -998,7 +1002,8 @@
     <MESSAGE value="minor refactorings" />
     <MESSAGE value="refactored greedy iterate&#10;moved kempe to local search&#10;" />
     <MESSAGE value="minor fixes to iterative greedy&#10;added simulated annealing" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fixes to iterative greedy&#10;added simulated annealing" />
+    <MESSAGE value="added generic Solve trait" />
+    <option name="LAST_COMMIT_MESSAGE" value="added generic Solve trait" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1020,20 +1025,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/Predef.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="1047" max-vertical-offset="6840">
-          <caret line="97" column="6" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/collection/generic/GenericCompanion.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6771879" vertical-offset="68" max-vertical-offset="765">
-          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/collection/generic/GenericSetTemplate.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.204236" vertical-offset="0" max-vertical-offset="661">
@@ -1339,58 +1330,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/Solve.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/Greedy.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8" max-vertical-offset="660">
-          <caret line="7" column="92" selection-start-line="7" selection-start-column="92" selection-end-line="7" selection-end-column="92" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="720">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="18" />
           <folding>
-            <marker date="1394963452000" expanded="true" signature="764:798" placeholder="{...}" />
-            <marker date="1394963452000" expanded="true" signature="798:885" placeholder="{...}" />
+            <element signature="e#18#49#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="587" max-vertical-offset="990">
+          <caret line="52" column="3" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="750">
+          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding>
+            <element signature="e#18#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/math/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325062" vertical-offset="196" max-vertical-offset="2610">
+          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1305">
-          <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="98" max-vertical-offset="990">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#62#93#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="9" column="106" selection-start-line="9" selection-start-column="106" selection-end-line="9" selection-end-column="106" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="18" column="0" selection-start-line="17" selection-start-column="3" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#18#42#0" expanded="true" />
-            <marker date="1394963822000" expanded="true" signature="652:1302" placeholder="{...}" />
+            <marker date="1394966890000" expanded="true" signature="616:650" placeholder="{...}" />
+            <marker date="1394966890000" expanded="true" signature="650:737" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/Solve.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2530675" vertical-offset="0" max-vertical-offset="652">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20705521" vertical-offset="0" max-vertical-offset="652">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7592025" vertical-offset="0" max-vertical-offset="652">
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -7,5 +7,6 @@ import coloring.ColoringSolver.Solution
  */
 trait Solve {
 
-  abstract def solution: Solution
+  def solution: Solution
+
 }

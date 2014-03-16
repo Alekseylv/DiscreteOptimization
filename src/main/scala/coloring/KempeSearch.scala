@@ -7,7 +7,7 @@ import coloring.ColoringSolver.Solution
 /**
  * Created by Aleksey on 15/03/14.
  */
-class KempeSearch(val graph: Graph, resultInput: Array[Int], colorMap: mutable.HashMap[Int, Int]) extends Solve {
+class KempeSearch(val graph: Graph, resultInput: Array[Int], colorMap: mutable.HashMap[Int, Int]) extends Greedy {
 
   val result = resultInput.clone()
   var map = colorMap.clone()
@@ -30,7 +30,7 @@ class KempeSearch(val graph: Graph, resultInput: Array[Int], colorMap: mutable.H
     val oldColor = result(random)
     val available = map.keySet
 
-    result(random) = available.tail.fold(available.head)((a, b) => if (map(a) > map(b)) a else b)
+    result(random) = available.toArray.apply(Random.nextInt(available.size))
     val adj = conflictNodes(random)
     if (!adj.isEmpty) {
       adj.foreach(x => pivot(x, oldColor, result(random)))
