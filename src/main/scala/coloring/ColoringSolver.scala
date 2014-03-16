@@ -52,12 +52,8 @@ object ColoringSolver {
     build.toString()
   }
 
-  def sortedByVertexLocality(graph: Graph): TraversableOnce[Int] = {
-    (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(-_._2).map(_._1) // hack to sort desc
-  }
-
   def solution(input: Graph): Solution = {
-    new KempeIterative(input, sortedByVertexLocality(input)).solution
+    new GreedyIterative(input).solution
   }
 
 

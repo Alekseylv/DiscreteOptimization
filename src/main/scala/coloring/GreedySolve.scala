@@ -7,19 +7,21 @@ package coloring
 import scala.collection.mutable
 import coloring.ColoringSolver.Solution
 import scala.util.Random
+import scala.collection.Set
 
 
-class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int]) {
+class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int], val result: Array[Int]) {
+
+  def this(input: Graph, nodeIndex: TraversableOnce[Int]) = this(input, nodeIndex, new Array[Int](input.V))
 
   import scala.collection.immutable.IndexedSeq
 
   val graph = input
-  val result = new Array[Int](graph.V)
   val allColors = (1 to Int.MaxValue).iterator
 
   var map = new mutable.HashMap[Int, Int]
 
-  def availableColorsTo(v: Int) = {
+  def availableColorsTo(v: Int): Set[Int] = {
     val available = mutable.Set.empty ++ map.keySet
     val iter = graph.adjacent(v).iterator
 
@@ -30,7 +32,7 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int])
     available
   }
 
-  def chooseColor(available: mutable.Set[Int]) = available.tail.fold(available.head)((a, b) => if (map(a) > map(b)) a else b)
+  def chooseColor(available: Set[Int]) = available.tail.fold(available.head)((a, b) => if (map(a) > map(b)) a else b)
 
   protected def assignColor(v: Int) {
     val available = availableColorsTo(v)
