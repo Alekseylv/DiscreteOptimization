@@ -7,7 +7,7 @@ import coloring.ColoringSolver._
  */
 class KempeIterative(input: Graph, nodeLocalityIndex: TraversableOnce[Int]) extends KempeSolve(input, nodeLocalityIndex) {
 
-  var emptyIterCount: Int = 20000
+  var emptyIterCount: Int = 200
 
   def decrease = {
     emptyIterCount -= 1

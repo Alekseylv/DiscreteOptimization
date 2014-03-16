@@ -19,7 +19,7 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int])
 
   var map = new mutable.HashMap[Int, Int]
 
-  protected def assignColor(v: Int) {
+  def availableColorsTo(v: Int) = {
     val available = mutable.Set.empty ++ map.keySet
     val iter = graph.adjacent(v).iterator
 
@@ -27,12 +27,20 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int])
       available -= result(iter.next())
     }
 
+    available
+  }
+
+  def chooseColor(available: mutable.Set[Int]) = available.tail.fold(available.head)((a, b) => if (map(a) > map(b)) a else b)
+
+  protected def assignColor(v: Int) {
+    val available = availableColorsTo(v)
+
     if (available.isEmpty) {
       val col = allColors.next()
       result(v) = col
       map += ((col, 1))
     } else {
-      val color = available.tail.fold(available.head)((a, b) => if (map(a) > map(b)) a else b)
+      val color = chooseColor(available)
       result(v) = color
       map += ((color, map(color) + 1))
     }
