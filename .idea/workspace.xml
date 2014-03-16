@@ -6,14 +6,8 @@
     <bookmark url="jar://$PROJECT_DIR$/lib/algs4-package.jar!/edu/princeton/cs/algs4/Digraph.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="added generic Solve trait">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/coloring/Greedy.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/KempeSearch.scala" />
+    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="implemented abstract simulated annealing&#10;refactored code">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/coloring/Solve.scala" afterPath="$PROJECT_DIR$/src/main/scala/coloring/Solve.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Scala Knapsack, Assignment 1.iws" />
@@ -96,8 +90,8 @@
       <file leaf-file-name="SimulatedAnnealingSolve.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7592025" vertical-offset="0" max-vertical-offset="652">
-              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.6671779" vertical-offset="0" max-vertical-offset="652">
+              <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -119,8 +113,8 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
               <caret line="18" column="0" selection-start-line="17" selection-start-column="3" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <marker date="1394966890000" expanded="true" signature="616:650" placeholder="{...}" />
-                <marker date="1394966890000" expanded="true" signature="650:737" placeholder="{...}" />
+                <marker date="1394967296000" expanded="true" signature="617:651" placeholder="{...}" />
+                <marker date="1394967296000" expanded="true" signature="651:738" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -978,7 +972,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added second assignment" />
     <MESSAGE value="added unmanaged libs" />
     <MESSAGE value="idea project file updates" />
     <MESSAGE value="modified .gitignore" />
@@ -1003,7 +996,8 @@
     <MESSAGE value="refactored greedy iterate&#10;moved kempe to local search&#10;" />
     <MESSAGE value="minor fixes to iterative greedy&#10;added simulated annealing" />
     <MESSAGE value="added generic Solve trait" />
-    <option name="LAST_COMMIT_MESSAGE" value="added generic Solve trait" />
+    <MESSAGE value="implemented abstract simulated annealing&#10;refactored code" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented abstract simulated annealing&#10;refactored code" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1389,16 +1383,16 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
           <caret line="18" column="0" selection-start-line="17" selection-start-column="3" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <marker date="1394966890000" expanded="true" signature="616:650" placeholder="{...}" />
-            <marker date="1394966890000" expanded="true" signature="650:737" placeholder="{...}" />
+            <marker date="1394967296000" expanded="true" signature="617:651" placeholder="{...}" />
+            <marker date="1394967296000" expanded="true" signature="651:738" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7592025" vertical-offset="0" max-vertical-offset="652">
-          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.6671779" vertical-offset="0" max-vertical-offset="652">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
           <folding />
         </state>
       </provider>

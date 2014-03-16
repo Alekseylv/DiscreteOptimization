@@ -15,7 +15,7 @@ class SimulatedAnnealingSolve(graph: Graph) extends Solve {
     var otherSolution = otherSolve.solution
 
     val iterCount = 2000
-    var t: Double = 0.5
+    var t: Double = 0.1
 
     var iter = 0
     while (iter < iterCount) {
@@ -28,7 +28,8 @@ class SimulatedAnnealingSolve(graph: Graph) extends Solve {
 
       otherSolution = otherSolve.solution
       iter += 1
-      t *= 1.5
+      t *= 1.005
+      println(t)
     }
 
     solution
