@@ -1,6 +1,6 @@
 package coloring
 
-import scala.collection.mutable
+import scala.collection.{Set, mutable}
 import scala.util.Random
 
 
@@ -14,6 +14,13 @@ trait Greedy extends Solve {
   def map(): mutable.HashMap[Int, Int]
 
   def result(): Array[Int]
+
+  def graph(): Graph
+
+  def conflictNodes(i: Int): Set[Int] = {
+    val result = this.result()
+    graph.adjacent(i).filter(x => result(x) == result(i))
+  }
 
   def vertexLocalityIndex(): Map[Int, IndexedSeq[Int]] = {
     val result = this.result()

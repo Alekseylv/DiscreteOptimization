@@ -1,7 +1,7 @@
 package coloring
 
 import scala.util.Random
-import scala.collection.{mutable, Set}
+import scala.collection.mutable
 import coloring.ColoringSolver.Solution
 
 /**
@@ -15,10 +15,6 @@ class KempeSearch(val graph: Graph, resultInput: Array[Int], colorMap: mutable.H
   def pivot(i: Int, colorToPut: Int, oldColor: Int): Unit = {
     result(i) = colorToPut
     conflictNodes(i).foreach(x => pivot(x, oldColor, colorToPut))
-  }
-
-  def conflictNodes(i: Int): Set[Int] = {
-    graph.adjacent(i).filter(x => result(x) == result(i))
   }
 
   override def solution: Solution = {

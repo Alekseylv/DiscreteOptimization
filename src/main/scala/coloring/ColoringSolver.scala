@@ -53,7 +53,7 @@ object ColoringSolver {
   }
 
   def solution(input: Graph): Solution = {
-    new SimulatedAnnealingSolve(input).solution
+    new GreedyIterative(input).solution
   }
 
 

@@ -66,6 +66,16 @@ class Graph(val V: Int, var E: Int = 0) {
     adj(v)
   }
 
+  def randomVertex(): Int = Random.nextInt(adj.length)
+
+  def randomEdge(): Edge = {
+    var v = Random.nextInt(adj.length)
+    while (adj(v).size == 0)
+      v = Random.nextInt(adj.length)
+
+    val e = adj(v).toArray.apply(Random.nextInt(adj(v).size))
+    (e, v)
+  }
 
   /**
    * Useful for small graph instances

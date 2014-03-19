@@ -7,7 +7,9 @@ import coloring.ColoringSolver._
  */
 class GreedyIterative(input: Graph, nodeIndex: TraversableOnce[Int]) extends GreedySolve(input, nodeIndex) {
 
-  var emptyIterCount: Int = 2000
+  def this(graph: Graph) = this(graph, (0 to graph.V - 1).map(x => (x, graph.adjacent(x).size)).sortBy(-_._2).map(_._1))
+
+  var emptyIterCount: Int = 10000
 
   def decrease = {
     emptyIterCount -= 1
