@@ -49,10 +49,21 @@ class GreedySolve(val input: Graph, val nodeLocalityIndex: TraversableOnce[Int],
     }
   }
 
+  def reassignColor(v: Int) {
+    val color = result(v)
+    val count = map(color)
+    if (count == 1) {
+      map -= color
+    } else {
+      map += ((color, count - 1))
+    }
 
+    assignColor(v)
+  }
 
   override def solution: Solution = {
     nodeLocalityIndex.foreach(x => assignColor(x))
+    nodeLocalityIndex.foreach(x => reassignColor(x)) // improves results for larger graph instances
 
     (map.keySet.size, result, map.values.fold(0)((a, b) => b * b + a).toLong)
   }
