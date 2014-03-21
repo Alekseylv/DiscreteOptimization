@@ -26,7 +26,7 @@ object TspSolver {
           (p(0), p(1))
       }
 
-      println(prepareSolution(solve(N, rest.toArray)))
+      println(prepareSolution(solveIt(N, rest.toArray)))
 
       source.close()
     }
@@ -41,34 +41,8 @@ object TspSolver {
     build.toString()
   }
 
-  def solve(N: Int, data: Data): Solution = {
-    val list = 0 to N - 1
-    (solutionValue(list, data), list)
+  def solveIt(n: Int, input: Data): Solution = {
+    new GreedySolve(n, input).solution
   }
-
-  def solutionValue(solution: TraversableOnce[Int], data: Data): Double = {
-    var result: Double = 0
-    val iter = solution.toIterator
-
-    val first = iter.next()
-    var current = iter.next()
-
-    result += length(first, current, data)
-
-    while (iter.hasNext) {
-      val temp = iter.next()
-      result += length(current, temp, data)
-      current = temp
-    }
-
-    result += length(first, current, data)
-    result
-  }
-
-  def length(i: Int, j: Int, data: Data): Double = {
-    math.sqrt(sqr(data(i)._1 - data(j)._1) + sqr(data(i)._2 - data(j)._2))
-  }
-
-  def sqr(i: Double) = i * i
 
 }
