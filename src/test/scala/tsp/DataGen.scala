@@ -23,7 +23,7 @@ trait DataGen {
       }
     }
 
-    (0 to n - 1).zip(set).toArray
+    set.toArray
   }
 
   val graphPlots: Gen[(Int, Data)] = for {
