@@ -5,7 +5,7 @@ package tsp
  */
 object TspSolver {
 
-  type Node = (Float, Float)
+  type Node = (Double, Double)
   type Data = Array[Node]
   type Solution = (Double, TraversableOnce[Int])
 
@@ -22,7 +22,7 @@ object TspSolver {
       val N = input.head.toInt
       val rest = input.tail.toList.map {
         x: String =>
-          val p = x.split(" ").map(_.toFloat)
+          val p = x.split(" ").map(_.toDouble)
           (p(0), p(1))
       }
 
