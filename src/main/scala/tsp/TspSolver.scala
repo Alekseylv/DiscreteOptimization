@@ -42,7 +42,7 @@ object TspSolver {
   }
 
   def solveIt(n: Int, input: Data): Solution = {
-    new GreedySolve(n, input).solution
+    new TwoOpt(n, input).solution
   }
 
 }

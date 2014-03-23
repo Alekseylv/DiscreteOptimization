@@ -4,6 +4,7 @@ import tsp.TspSolver.{Node, Solution, Data}
 
 /**
  * Created by Aleksey on 22/03/14.
+ * Generic trait for solution improvement by removing crossed edges
  */
 trait SolutionImprovement {
 
@@ -39,7 +40,7 @@ trait SolutionImprovement {
   def sqr(i: Double) = i * i
 
   /**
-   *
+   * Basic linear math
    * @param p1 start point of line 1
    * @param p2 end point of line 1
    * @param p3 start point of line 2
