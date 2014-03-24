@@ -11,7 +11,8 @@ class GreedySolve(val N: Int, val data: Data) extends SolutionImprovement {
   val currentSolution = new mutable.MutableList[Int]()
 
   def solution: Solution = {
-    improveSolution(solutionSequence)
+    val sol = improveSolution(solutionSequence)
+    (solutionValue(sol), sol)
   }
 
   def solutionSequence: TraversableOnce[Int] = {

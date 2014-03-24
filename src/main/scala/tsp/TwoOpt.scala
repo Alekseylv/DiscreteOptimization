@@ -8,10 +8,6 @@ import tsp.TspSolver._
 class TwoOpt(N: Int, data: Data) extends GreedySolve(N, data) {
 
 
-  override def solution: (Double, TraversableOnce[Int]) = {
-    improveSolution(solutionSequence)
-  }
-
   override def solutionSequence: TraversableOnce[Int] = {
     val seq = super.solutionSequence.toArray
 

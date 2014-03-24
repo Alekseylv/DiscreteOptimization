@@ -1,6 +1,6 @@
 package tsp
 
-import tsp.TspSolver.{Node, Solution, Data}
+import tsp.TspSolver.{Node, Data}
 
 /**
  * Created by Aleksey on 22/03/14.
@@ -104,14 +104,14 @@ trait SolutionImprovement {
     false
   }
 
-  def improveSolution(sol: TraversableOnce[Int]): Solution = {
+  def improveSolution(sol: TraversableOnce[Int]): TraversableOnce[Int] = {
 
     val seq = sol.toArray
 
     loopFirst(seq)
     while (loopSecond(seq)) loopFirst(seq)
 
-    (solutionValue(seq), seq)
+    seq
   }
 }
 
