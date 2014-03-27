@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="refactor of solution improvement">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/tsp/DistanceMatrix.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/tsp/SolverSpec.scala" afterPath="$PROJECT_DIR$/src/test/scala/tsp/SolverSpec.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -178,9 +177,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/tsp/TspSolver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tsp/TwoOpt.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/tsp/SolverSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/tsp/DistanceMatrix.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tsp/SolutionImprovement.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tsp/GreedySolve.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/tsp/DistanceMatrix.scala" />
       </list>
     </option>
   </component>
@@ -985,7 +984,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added more heuristics" />
     <MESSAGE value="heuristics fix" />
     <MESSAGE value="clean up of Graph.scala" />
     <MESSAGE value="refactored graph generation" />
@@ -1010,7 +1008,8 @@
     <MESSAGE value="added some tests for crossed edges optimization" />
     <MESSAGE value="added a single two opt iteration to solver" />
     <MESSAGE value="refactor of solution improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor of solution improvement" />
+    <MESSAGE value="added pre computer distance matrix implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added pre computer distance matrix implementation" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -28,4 +28,10 @@ object SolverSpec extends Properties("Properties for methods in solvers") with D
     x => new GreedySolve(0, null).intersects(x._1, x._2, x._3, x._4)
   }
 
+  property("Distance matrix should have all 0 diagonal") = forAll(graphPlots) {
+    x =>
+      val matrix = new DistanceMatrix(x._1, x._2)
+      (0 to x._1 - 1).forall(y => math.abs(matrix(y, y)) < 0.0001)
+  }
+
 }
