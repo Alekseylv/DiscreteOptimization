@@ -1,16 +1,12 @@
 package tsp
 
-import tsp.TspSolver.{Node, Data}
+import tsp.TspSolver.Node
 
 /**
  * Created by Aleksey on 22/03/14.
  * Generic trait for solution improvement by removing crossed edges
  */
-trait SolutionImprovement {
-
-  def N: Int
-
-  def data: Data
+trait SolutionImprovement extends ClosestNeighbourIndex {
 
   def currentSolution: TraversableOnce[Int]
 
@@ -32,12 +28,6 @@ trait SolutionImprovement {
     result += length(first, current)
     result
   }
-
-  def length(i: Int, j: Int): Double = {
-    math.sqrt(sqr(data(i)._1 - data(j)._1) + sqr(data(i)._2 - data(j)._2))
-  }
-
-  def sqr(i: Double) = i * i
 
   /**
    * Basic linear math
