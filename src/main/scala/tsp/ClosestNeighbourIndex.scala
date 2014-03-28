@@ -23,6 +23,7 @@ trait ClosestNeighbourIndex {
   }
 
   def createAndCompute(file: File): Array[TraversableOnce[Int]] = {
+    file.getParentFile.mkdirs()
     file.createNewFile()
 
     val sorted = (0 to N - 1) map {
@@ -40,10 +41,10 @@ trait ClosestNeighbourIndex {
   }
 
   def readAndParse(file: File): Array[TraversableOnce[Int]] = {
-    val source = io.Source.fromFile(file)
-    source.getLines().map {
+
+    (io.Source.fromFile(file).getLines() map {
       x: String => x.split(" ").map(_.toInt).toList
-    }.toArray
+    }).toArray
   }
 
   def length(i: Int, j: Int): Double = {

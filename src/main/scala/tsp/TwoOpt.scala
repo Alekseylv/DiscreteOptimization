@@ -5,8 +5,9 @@ import tsp.TspSolver._
 /**
  * Created by Aleksey on 23/03/14.
  */
-class TwoOpt(N: Int, data: Data) extends GreedySolve(N, data) {
+class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(N, data) {
 
+  val index = getIndex(name)
 
   override def solutionSequence: TraversableOnce[Int] = {
     val seq = super.solutionSequence.toArray

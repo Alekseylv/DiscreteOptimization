@@ -26,7 +26,7 @@ object TspSolver {
           (p(0), p(1))
       }
 
-      println(prepareSolution(solveIt(N, rest.toArray)))
+      println(prepareSolution(solveIt(args(0), N, rest.toArray)))
 
       source.close()
     }
@@ -41,8 +41,8 @@ object TspSolver {
     build.toString()
   }
 
-  def solveIt(n: Int, input: Data): Solution = {
-    new TwoOpt(n, input).solution
+  def solveIt(name: String, n: Int, input: Data): Solution = {
+    new TwoOpt(name, n, input).solution
   }
 
 }
