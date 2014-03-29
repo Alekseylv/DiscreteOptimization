@@ -6,8 +6,7 @@
     <bookmark url="jar://$PROJECT_DIR$/lib/algs4-package.jar!/edu/princeton/cs/algs4/Digraph.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="refactored everything&#10;moved common operations to object&#10;improved solution improvement performance&#10;2-opt is broken now, need to implement a backwards map from vertex to index in  solution sequence">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/tsp/GenericOps.scala" afterPath="$PROJECT_DIR$/src/main/scala/tsp/GenericOps.scala" />
+    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="fixed 2-opt by adding nodeIndex map">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/tsp/TwoOpt.scala" afterPath="$PROJECT_DIR$/src/main/scala/tsp/TwoOpt.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -45,8 +44,8 @@
       <file leaf-file-name="TwoOpt.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/tsp/TwoOpt.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13245033" vertical-offset="165" max-vertical-offset="1320">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.8013245" vertical-offset="387" max-vertical-offset="840">
+              <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
               <folding>
                 <element signature="e#13#35#0" expanded="true" />
               </folding>
@@ -983,7 +982,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="more workspace" />
     <MESSAGE value="cleaning up" />
     <MESSAGE value="refactored solvers" />
     <MESSAGE value="refactored iteration&#10;" />
@@ -1008,7 +1006,8 @@
     <MESSAGE value="added closest neighbour calculations and saving them to cache file" />
     <MESSAGE value="fixed IO errors" />
     <MESSAGE value="refactored everything&#10;moved common operations to object&#10;improved solution improvement performance&#10;2-opt is broken now, need to implement a backwards map from vertex to index in  solution sequence" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored everything&#10;moved common operations to object&#10;improved solution improvement performance&#10;2-opt is broken now, need to implement a backwards map from vertex to index in  solution sequence" />
+    <MESSAGE value="fixed 2-opt by adding nodeIndex map" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed 2-opt by adding nodeIndex map" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1382,8 +1381,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/tsp/TwoOpt.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13245033" vertical-offset="165" max-vertical-offset="1320">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.8013245" vertical-offset="387" max-vertical-offset="840">
+          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
           <folding>
             <element signature="e#13#35#0" expanded="true" />
           </folding>
