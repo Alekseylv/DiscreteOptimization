@@ -6,9 +6,9 @@ import scala.collection.mutable
 /**
  * Created by Aleksey on 21/03/14.
  */
-class GreedySolve(val N: Int, val data: Data) extends SolutionImprovement {
+class GreedySolve(name: String, val N: Int, val data: Data) extends SolutionImprovement {
 
-  val currentSolution = new mutable.MutableList[Int]()
+  val index = getIndex(name)
 
   def solution: Solution = {
     val sol = improveSolution(solutionSequence)
@@ -16,6 +16,8 @@ class GreedySolve(val N: Int, val data: Data) extends SolutionImprovement {
   }
 
   def solutionSequence: TraversableOnce[Int] = {
+    val currentSolution = new mutable.MutableList[Int]()
+
     val set = new mutable.HashSet[Int]() ++ (1 to N - 1)
     currentSolution += 0
     var head = 0

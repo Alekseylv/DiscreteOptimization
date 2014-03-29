@@ -1,14 +1,12 @@
 package tsp
 
-import tsp.TspSolver.Node
+import GenericOps._
 
 /**
  * Created by Aleksey on 22/03/14.
  * Generic trait for solution improvement by removing crossed edges
  */
 trait SolutionImprovement extends ClosestNeighbourIndex {
-
-  def currentSolution: TraversableOnce[Int]
 
   def solutionValue(solution: TraversableOnce[Int]): Double = {
     var result: Double = 0
@@ -29,40 +27,15 @@ trait SolutionImprovement extends ClosestNeighbourIndex {
     result
   }
 
-  /**
-   * Basic linear math
-   * @param p1 start point of line 1
-   * @param p2 end point of line 1
-   * @param p3 start point of line 2
-   * @param p4 end point of line 2
-   * @return do the lines intersect
-   */
-  def intersects(p1: Node, p2: Node, p3: Node, p4: Node): Boolean = {
 
-    val firstLineX = p2._1 - p1._1
-    val firstLineY = p2._2 - p1._2
-
-    val secondLineX = p4._1 - p3._1
-    val secondLineY = p4._2 - p3._2
-
-    val s = (-firstLineY * (p1._1 - p3._1) + firstLineX * (p1._2 - p3._2)) / (-secondLineX * firstLineY + firstLineX * secondLineY)
-    val t = (secondLineX * (p1._2 - p3._2) - secondLineY * (p1._1 - p3._1)) / (-secondLineX * firstLineY + firstLineX * secondLineY)
-
-    s >= 0 && s <= 1 && t >= 0 && t <= 1
+  def pred(i: Int) = {
+    if (i == 0) N - 1
+    else i - 1
   }
 
-  def swap(i: Int, j: Int, seq: Array[Int]) {
-    var start = i + 1
-    var end = j - 1
-    var temp = 0
-
-    while (end > start) {
-      temp = seq(start)
-      seq(start) = seq(end)
-      seq(end) = temp
-      end -= 1
-      start += 1
-    }
+  def succ(i: Int) = {
+    if (i == N - 1) 0
+    else i + 1
   }
 
   def loopFirst(seq: Array[Int]) {
@@ -79,19 +52,21 @@ trait SolutionImprovement extends ClosestNeighbourIndex {
 
   def loopSecond(seq: Array[Int]): Boolean = {
     var i = 0
+    var result = false
     while (i < N - 1) {
       var j = i + 3
       while (j < N) {
         if (intersects(data(seq(i)), data(seq(i + 1)), data(seq(j - 1)), data(seq(j)))) {
           swap(i, j, seq)
-          return true
-        } else {
-          j += 1
+          result = true
         }
+        j += 1
+
       }
       i += 1
     }
-    false
+
+    result
   }
 
   def improveSolution(sol: TraversableOnce[Int]): TraversableOnce[Int] = {

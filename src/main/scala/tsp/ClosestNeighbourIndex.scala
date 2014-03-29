@@ -15,20 +15,20 @@ trait ClosestNeighbourIndex {
 
   val size = 20
 
-  def getIndex(name: String): Array[TraversableOnce[Int]] = {
+  def getIndex(name: String): Array[Set[Int]] = {
     val file = new File("cache/" + name)
 
     if (file.exists()) readAndParse(file)
     else createAndCompute(file)
   }
 
-  def createAndCompute(file: File): Array[TraversableOnce[Int]] = {
+  def createAndCompute(file: File): Array[Set[Int]] = {
     file.getParentFile.mkdirs()
     file.createNewFile()
 
     val sorted = (0 to N - 1) map {
       x =>
-        (0 to N - 1).filter(x != _).sortBy(length(x, _)) take size
+        ((0 to N - 1).filter(x != _).sortBy(length(x, _)) take size).toSet
     }
 
     val string = sorted map (_ mkString " ") mkString "\n"
@@ -40,10 +40,10 @@ trait ClosestNeighbourIndex {
     sorted.toArray
   }
 
-  def readAndParse(file: File): Array[TraversableOnce[Int]] = {
+  def readAndParse(file: File): Array[Set[Int]] = {
 
     (io.Source.fromFile(file).getLines() map {
-      x: String => x.split(" ").map(_.toInt).toList
+      x: String => x.split(" ").map(_.toInt).toSet
     }).toArray
   }
 

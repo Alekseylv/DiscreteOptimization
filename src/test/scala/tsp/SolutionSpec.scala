@@ -13,16 +13,13 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
 
   property("Solution must have proper length") = forAll(graphPlots) {
     x =>
-
-      val result = TspSolver.solveIt(fileName, x._1, x._2)._2.toSet.size == x._1
-      new java.io.File(fileName).delete()
-      result
+      new java.io.File("cache/" + fileName).delete()
+      TspSolver.solveIt(fileName, x._1, x._2)._2.toSet.size == x._1
   }
 
   property("Solution value must be higher than zero") = forAll(graphPlots) {
     x =>
-      val result = TspSolver.solveIt(fileName, x._1, x._2)._1 > 0
-      new java.io.File(fileName).delete()
-      result
+      new java.io.File("cache/" + fileName).delete()
+      TspSolver.solveIt(fileName, x._1, x._2)._1 > 0
   }
 }
