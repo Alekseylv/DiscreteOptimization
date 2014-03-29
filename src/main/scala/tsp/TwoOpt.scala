@@ -12,9 +12,17 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
   override def solutionSequence: TraversableOnce[Int] = {
     val seq = super.solutionSequence.toArray
 
+    val indexMap: Array[Int] = new Array[Int](N)
     var i = 0
-    println("Start 2-opt")
 
+    while (i < N) {
+      indexMap(seq(i)) = i
+      i += 1
+    }
+
+    //    println("Start 2-opt")
+
+    i = 0
     while (i < N) {
 
       val changeFromLength = length(seq(i), seq(succ(i))) //+ length(seq(pred(j)), seq(j))
@@ -22,22 +30,22 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
       //TODO this is all wrong
       val item = (index(seq(i)) -- List(seq(succ(i)), seq(pred(i)))).foldLeft((-1, Double.MaxValue)) {
         (old, j) =>
-          val changeToLength = length(seq(i), seq(pred(j))) + length(seq(succ(i)), seq(j))
+          val changeToLength = length(seq(i), seq(pred(indexMap(j)))) + length(seq(succ(i)), j)
 
-          if (old._2 > changeToLength && changeFromLength + length(seq(j), seq(pred(j))) > changeToLength) {
-            (j, changeToLength)
+          if (old._2 > changeToLength && changeFromLength + length(j, seq(pred(indexMap(j)))) > changeToLength) {
+            (indexMap(j), changeToLength)
           } else {
             old
           }
       }
 
       if (item._1 != -1) {
-        swap(i, item._1, seq)
+        swapOpt(i, item._1, seq, indexMap)
       }
 
       i += 1
     }
-    println("End 2-opt")
+    //    println("End 2-opt")
     seq
   }
 }

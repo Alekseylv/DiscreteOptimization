@@ -43,5 +43,22 @@ object GenericOps {
     }
   }
 
+  def swapOpt(i: Int, j: Int, seq: Array[Int], indexMap: Array[Int]) {
+    var start = i + 1
+    var end = j - 1
+    var temp = 0
+
+    while (end > start) {
+      temp = seq(start)
+      seq(start) = seq(end)
+      seq(end) = temp
+
+      indexMap(seq(start)) = start
+      indexMap(seq(end)) = end
+
+      end -= 1
+      start += 1
+    }
+  }
 
 }
