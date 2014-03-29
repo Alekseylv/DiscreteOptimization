@@ -27,7 +27,6 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
 
       val changeFromLength = length(seq(i), seq(succ(i))) //+ length(seq(pred(j)), seq(j))
 
-      //TODO this is all wrong
       val item = (index(seq(i)) -- List(seq(succ(i)), seq(pred(i)))).foldLeft((-1, Double.MaxValue)) {
         (old, j) =>
           val changeToLength = length(seq(i), seq(pred(indexMap(j)))) + length(seq(succ(i)), j)
