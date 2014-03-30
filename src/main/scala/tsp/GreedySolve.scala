@@ -6,14 +6,7 @@ import scala.collection.mutable
 /**
  * Created by Aleksey on 21/03/14.
  */
-class GreedySolve(name: String, val N: Int, val data: Data) extends SolutionImprovement {
-
-  val index = getIndex(name)
-
-  def solution: Solution = {
-    val sol = improveSolution(solutionSequence)
-    (solutionValue(sol), sol)
-  }
+class GreedySolve(name: String, N: Int, data: Data) extends Solve(name, N, data) {
 
   def solutionSequence: TraversableOnce[Int] = {
     val currentSolution = new mutable.MutableList[Int]()
