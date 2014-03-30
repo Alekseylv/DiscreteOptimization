@@ -15,5 +15,4 @@ abstract class Solve(name: String, val N: Int, val data: Data) extends SolutionI
   }
 
   def solutionSequence: TraversableOnce[Int]
-
 }

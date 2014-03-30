@@ -10,5 +10,4 @@ class RandomSolve(name: String, N: Int, data: Data) extends Solve(name, N, data)
 
   def solutionSequence: TraversableOnce[Int] = Random.shuffle((0 to N - 1).toList)
 
-
 }

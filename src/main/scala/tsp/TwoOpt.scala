@@ -7,7 +7,7 @@ import GenericOps._
 /**
  * Created by Aleksey on 23/03/14.
  */
-class TwoOpt(name: String, N: Int, data: Data) extends RandomSolve(name, N, data) {
+class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data) {
 
   override def solutionSequence: TraversableOnce[Int] = {
     val seq = super.solutionSequence.toArray
