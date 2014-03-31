@@ -24,7 +24,6 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
         i += 1
       }
 
-      //    println("Start 2-opt")
       i = 0
       while (i < N) {
 
@@ -59,8 +58,6 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
    * @param indexMap reverse map from node to index in solution
    */
   def fourOpt(seq: Array[Int], indexMap: Array[Int]) {
-
-    println("starting 4 op")
 
     var i = 0
 
@@ -119,6 +116,52 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
       i += 1
     }
 
-    println("Done 4 opt")
+  }
+
+  def bestPermutation(a1: Int, a2: Int, b1: Int, b2: Int, c1: Int, c2: Int, d1: Int, d2: Int): (TraversableOnce[Int], Double) = {
+
+    var best = List[Int()
+    var bestLength = Double.MaxValue //TODO initial value?.. No
+
+    val arr = Array(a1, a2, b1, b2, c1, c2, d1, d2)
+    val map = Array(a2, a1, b2, b1, c2, c1, d2, d1)
+
+    var i = 2
+    while (i < arr.length) {
+
+      var j = 2
+      while (j < arr.length) {
+        if (i != j) {
+
+          var k = 4
+          while (k < arr.length) {
+            if (k != i && k != j) {
+
+              var p = 4
+              while (p < arr.length) {
+                if (p != i && p != j && p != k) {
+                  //perm (0, i), (1, j), (2, k), (3, p)
+                  val len = length(0, i) + length(1, j) + length(2, k) + length(3, p)
+                  if (len < bestLength) {
+                    bestLength = len
+                    best = List(0, i, 1, j, 2, k, 3, p)
+                  }
+                }
+
+                p += 1
+              }
+            }
+
+            k += 1
+          }
+        }
+
+        j += 1
+      }
+
+      i += 1
+    }
+
+    (best, bestLength)
   }
 }
