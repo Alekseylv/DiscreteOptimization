@@ -27,7 +27,7 @@ trait DataGen {
   }
 
   val graphPlots: Gen[(Int, Data)] = for {
-    o <- Gen.choose(10, 20)
+    o <- Gen.choose(8, 10)
   } yield (o, randomInput(o))
 
   val intersectedLines: Gen[(Node, Node, Node, Node)] = for {

@@ -27,10 +27,10 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
     x =>
       new java.io.File("cache/" + fileName).delete()
       val solution = TspSolver.solveIt(fileName, x._1, x._2)
-      solution._2.toList.sorted == (0 to x._1 - 1).toList
+      isValid(solution._2, x._1)
   }
 
-  property("Permutations should not contain certain edges passed as arguments") = forAll(graphPlots) {
+  property("Permutations should not contain edges passed as arguments") = forAll(graphPlots) {
     x =>
       new java.io.File("cache/" + fileName).delete()
       val solver = new TwoOpt(fileName, x._1, x._2)
@@ -41,10 +41,7 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
         solver.seq(5), solver.seq(6), solver.seq(7))._1
 
       List((solver.seq(0), solver.seq(1)), (solver.seq(2), solver.seq(3)), (solver.seq(4),
-        solver.seq(5)), (solver.seq(6), solver.seq(7))).forall {
-        x =>
-          !perm.contains(x)
-      }
+        solver.seq(5)), (solver.seq(6), solver.seq(7))).forall(x => !perm.contains(x))
 
   }
 
@@ -90,5 +87,50 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
       val perm = solver.doSwap(List(), Set())
 
       solver.indexMap.toList == perm._2.toList && solver.seq.toList == perm._1.toList
+  }
+
+  def isValid(solution: TraversableOnce[Int], N: Int) = {
+    solution.toList.sorted == (0 to N - 1).toList
+  }
+
+  property("Applying permutation should result in expected value change") = forAll(graphPlots) {
+    x =>
+      new java.io.File("cache/" + fileName).delete()
+      val solver = new TwoOpt(fileName, x._1, x._2)
+
+      val solution = solver.solution
+
+      val perm = solver.bestPermutation(solver.seq(0), solver.seq(1), solver.seq(2), solver.seq(3), solver.seq(4),
+        solver.seq(5), solver.seq(6), solver.seq(7))
+
+      val oldEdgeLengths = List((solver.seq(0), solver.seq(1)), (solver.seq(2), solver.seq(3)), (solver.seq(4),
+        solver.seq(5)), (solver.seq(6), solver.seq(7))).foldLeft(0.0)((a, b) => a + solver.length(b._1, b._2))
+
+      val newSolution = solver.doSwap(perm._1, Set(solver.seq(0), solver.seq(2), solver.seq(4), solver.seq(6)))
+
+      val actual = solver.solutionValue(newSolution._1)
+      val newValue = solution._1 + perm._2 - oldEdgeLengths
+
+      val valid = isValid(newSolution._1, x._1)
+
+      valid && actual == newValue
+  }
+
+  property("Permutation should not contain invalid tours") = forAll(graphPlots) {
+    x =>
+      new java.io.File("cache/" + fileName).delete()
+      val solver = new TwoOpt(fileName, x._1, x._2)
+
+      solver.solution
+
+      val perm = solver.bestPermutation(solver.seq(0), solver.seq(1), solver.seq(2), solver.seq(3), solver.seq(4),
+        solver.seq(5), solver.seq(6), solver.seq(7))
+
+      val f1 = perm._1.head._2
+      val f2 = perm._1.tail.head._2
+
+      List((solver.seq(2), solver.seq(3)), (solver.seq(4), solver.seq(5)), (solver.seq(6), solver.seq(7))) forall {
+        y => !(f1 == y._1 && f2 == y._2) && !(f2 == y._1 && f1 == y._2)
+      }
   }
 }
