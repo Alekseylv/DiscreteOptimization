@@ -23,6 +23,13 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
       TspSolver.solveIt(fileName, x._1, x._2)._1 > 0
   }
 
+  property("Solution must contain only unique vertices in domain [0, N)") = forAll(graphPlots) {
+    x =>
+      new java.io.File("cache/" + fileName).delete()
+      val solution = TspSolver.solveIt(fileName, x._1, x._2)
+      solution._2.toList.sorted == (0 to x._1 - 1).toList
+  }
+
   property("Permutations should not contain certain edges passed as arguments") = forAll(graphPlots) {
     x =>
       new java.io.File("cache/" + fileName).delete()
@@ -71,5 +78,17 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
         solver.seq(5), solver.seq(6), solver.seq(7)).sorted
 
       result == other
+  }
+
+  property("Empty swap must result in the same arrays") = forAll(graphPlots) {
+    x =>
+      new java.io.File("cache/" + fileName).delete()
+      val solver = new TwoOpt(fileName, x._1, x._2)
+
+      solver.solutionSequence
+
+      val perm = solver.doSwap(List(), Set())
+
+      solver.indexMap.toList == perm._2.toList && solver.seq.toList == perm._1.toList
   }
 }
