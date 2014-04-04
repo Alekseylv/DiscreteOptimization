@@ -127,6 +127,35 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
     other
   }
 
+  def doSwap(edges: List[(Int, Int)], predecessorNodes: Set[Int]) = {
+
+    val set = edges flatMap {
+      x => Set(x._1, x._2)
+    }
+
+    val newSeq = new Array[Int](N)
+    val newIndexMap = new Array[Int](N)
+
+    val start = 0
+    var head = start
+    val delta = succ _
+
+    do {
+      if (set.contains(head)) {
+        // jump
+
+      } else {
+        // continue
+        newSeq(head) = seq(head)
+        newIndexMap(newSeq(head)) = head
+
+        head = delta(head)
+      }
+    } while (head != start)
+
+    (newSeq, newIndexMap)
+  }
+
   def bestPermutation(a1: Int, a2: Int, b1: Int, b2: Int, c1: Int, c2: Int, d1: Int, d2: Int): (List[(Int, Int)], Double) = {
 
     var best = List[(Int, Int)]()
