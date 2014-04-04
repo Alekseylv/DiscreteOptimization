@@ -118,10 +118,16 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
 
   }
 
+  def findMin(initial: Int, used: Int*): Int = {
+    var other = initial
+    while (!used.contains(other)) other += 1
+    other
+  }
+
   def bestPermutation(a1: Int, a2: Int, b1: Int, b2: Int, c1: Int, c2: Int, d1: Int, d2: Int): (TraversableOnce[Int], Double) = {
 
-    var best = List[Int()
-    var bestLength = Double.MaxValue //TODO initial value?.. No
+    var best = List[Int]()
+    var bestLength = Double.MaxValue
 
     val arr = Array(a1, a2, b1, b2, c1, c2, d1, d2)
     val map = Array(a2, a1, b2, b1, c2, c1, d2, d1)
@@ -133,18 +139,20 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
       while (j < arr.length) {
         if (i != j) {
 
-          var k = 4
+          val k1 = findMin(2, i, j)
+          var k = k1 + 1
           while (k < arr.length) {
-            if (k != i && k != j) {
+            if (k != i && k != j && arr(k) != map(k1)) {
 
-              var p = 4
+              val p1 = findMin(3, i, j, k1, k)
+              var p = p1 + p
               while (p < arr.length) {
-                if (p != i && p != j && p != k) {
-                  //perm (0, i), (1, j), (2, k), (3, p)
-                  val len = length(0, i) + length(1, j) + length(2, k) + length(3, p)
+                if (p != i && p != j && p != k && p != k1 && arr(p) != map(p1)) {
+
+                  val len = length(arr(0), arr(i)) + length(arr(1), arr(j)) + length(arr(k1), arr(k)) + length(arr(p1), arr(p))
                   if (len < bestLength) {
                     bestLength = len
-                    best = List(0, i, 1, j, 2, k, 3, p)
+                    best = List(0, i, 1, j, 2, k, 3, p).map(arr.apply)
                   }
                 }
 
