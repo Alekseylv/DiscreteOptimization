@@ -10,10 +10,13 @@ import scala.annotation.tailrec
  */
 class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data) {
 
-  override def solutionSequence: TraversableOnce[Int] = {
-    val seq = super.solutionSequence.toArray
+  var indexMap = new Array[Int](N)
 
-    val indexMap: Array[Int] = new Array[Int](N)
+  var seq: Array[Int] = null
+
+  override def solutionSequence: TraversableOnce[Int] = {
+    seq = super.solutionSequence.toArray
+
     var iter = 0
 
     while (iter < 200) {
@@ -120,13 +123,13 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
 
   def findMin(initial: Int, used: Int*): Int = {
     var other = initial
-    while (!used.contains(other)) other += 1
+    while (used.contains(other)) other += 1
     other
   }
 
-  def bestPermutation(a1: Int, a2: Int, b1: Int, b2: Int, c1: Int, c2: Int, d1: Int, d2: Int): (TraversableOnce[Int], Double) = {
+  def bestPermutation(a1: Int, a2: Int, b1: Int, b2: Int, c1: Int, c2: Int, d1: Int, d2: Int): (List[(Int, Int)], Double) = {
 
-    var best = List[Int]()
+    var best = List[(Int, Int)]()
     var bestLength = Double.MaxValue
 
     val arr = Array(a1, a2, b1, b2, c1, c2, d1, d2)
@@ -145,14 +148,14 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
             if (k != i && k != j && arr(k) != map(k1)) {
 
               val p1 = findMin(3, i, j, k1, k)
-              var p = p1 + p
+              var p = p1 + 1
               while (p < arr.length) {
                 if (p != i && p != j && p != k && p != k1 && arr(p) != map(p1)) {
 
                   val len = length(arr(0), arr(i)) + length(arr(1), arr(j)) + length(arr(k1), arr(k)) + length(arr(p1), arr(p))
                   if (len < bestLength) {
                     bestLength = len
-                    best = List(0, i, 1, j, 2, k, 3, p).map(arr.apply)
+                    best = List((arr(0), arr(i)), (arr(1), arr(j)), (arr(k1), arr(k)), (arr(p1), arr(p)))
                   }
                 }
 
