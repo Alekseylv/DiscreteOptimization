@@ -4,6 +4,8 @@ import tsp.TspSolver._
 import GenericOps._
 import scala.annotation.tailrec
 
+import scala.collection.mutable
+
 
 /**
  * Created by Aleksey on 23/03/14.
@@ -52,17 +54,19 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
 
       iter += 1
     }
+
+    //   fourOpt()
+
     seq
   }
 
   /**
    * Bear with me on this...
-   * @param seq solution sequence
-   * @param indexMap reverse map from node to index in solution
    */
-  def fourOpt(seq: Array[Int], indexMap: Array[Int]) {
+  def fourOpt() {
 
     var i = 0
+    var currentLength = solutionValue(seq)
 
     while (i < N) {
       val a = seq(i)
@@ -94,10 +98,18 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
                 if (c2 == d) return
                 if (c < d && d != a && d != b) {
                   val d2 = seq(succ(indexMap(d)))
-                  //TODO call best permutation
-                  //TODO commit if better
-                }
 
+                  val perm = bestPermutation(a, a2, b, b2, c, c2, d, d2)
+                  val oldEdgeLengths = length(a, a2) + length(b, b2) + length(c, c2) + length(d, d2)
+                  if (currentLength > currentLength - oldEdgeLengths + perm._2) {
+
+                    currentLength = currentLength - oldEdgeLengths + perm._2
+                    val tuple = doSwap(perm._1, Set(a, b, c, d))
+                    seq = tuple._1
+                    indexMap = tuple._2
+                  }
+
+                }
 
                 if (iter3.hasNext) fourthIteration()
               }
@@ -129,29 +141,40 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
 
   def doSwap(edges: List[(Int, Int)], predecessorNodes: Set[Int]) = {
 
-    val set = edges flatMap {
-      x => Set(x._1, x._2)
+    val map = new mutable.HashMap[Int, Int]()
+
+    edges foreach {
+      x =>
+        map += x
+        map += ((x._2, x._1))
     }
+
 
     val newSeq = new Array[Int](N)
     val newIndexMap = new Array[Int](N)
 
     val start = 0
     var head = start
-    val delta = succ _
+    var delta = succ _
+    var i = 0
+
+    val set = mutable.HashSet[Int]()
 
     do {
-      if (set.contains(head)) {
-        // jump
+      newSeq(i) = seq(head)
+      newIndexMap(seq(head)) = i
 
+      if (map.contains(seq(head)) && !set.contains(seq(head))) {
+        set += seq(head)
+        head = indexMap(map(seq(head)))
+
+        delta = if (predecessorNodes.contains(seq(head))) pred else succ
       } else {
-        // continue
-        newSeq(head) = seq(head)
-        newIndexMap(newSeq(head)) = head
-
         head = delta(head)
       }
-    } while (head != start)
+
+      i += 1
+    } while (i < seq.length)
 
     (newSeq, newIndexMap)
   }
@@ -169,7 +192,7 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
 
       var j = 2
       while (j < arr.length) {
-        if (i != j) {
+        if (i != j && arr(i) != map(j)) {
 
           val k1 = findMin(2, i, j)
           var k = k1 + 1
