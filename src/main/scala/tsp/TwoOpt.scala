@@ -157,19 +157,18 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
     var head = start
     var delta = succ _
     var i = 0
-
-    val set = mutable.HashSet[Int]()
+    var move = true
 
     do {
       newSeq(i) = seq(head)
       newIndexMap(seq(head)) = i
 
-      if (map.contains(seq(head)) && !set.contains(seq(head))) {
-        set += seq(head)
+      if (map.contains(seq(head)) && move) {
         head = indexMap(map(seq(head)))
-
+        move = false
         delta = if (predecessorNodes.contains(seq(head))) pred else succ
       } else {
+        move = true
         head = delta(head)
       }
 
@@ -179,7 +178,13 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
     (newSeq, newIndexMap)
   }
 
+  @inline def check(k1: Int, k2: Int, constraints: Map[Int, Int]) = {
+    (!constraints.contains(k1) || constraints(k1) != k2) && (!constraints.contains(k2) || constraints(k2) != k1)
+  }
+
   def bestPermutation(a1: Int, a2: Int, b1: Int, b2: Int, c1: Int, c2: Int, d1: Int, d2: Int): (List[(Int, Int)], Double) = {
+
+    val constraints = Map(a2 -> seq(succ(indexMap(a2))), b2 -> seq(succ(indexMap(b2))), c2 -> seq(succ(indexMap(c2))), d2 -> seq(succ(indexMap(d2))))
 
     var best = List[(Int, Int)]()
     var bestLength = Double.MaxValue
@@ -189,37 +194,38 @@ class TwoOpt(name: String, N: Int, data: Data) extends GreedySolve(name, N, data
 
     var i = 2
     while (i < arr.length) {
+      if (!constraints.contains(arr(i)) || constraints(arr(i)) != arr(0)) {
+        var j = 2
+        while (j < arr.length) {
+          if (i != j && arr(i) != map(j) && (constraints(a2) != arr(j))) {
 
-      var j = 2
-      while (j < arr.length) {
-        if (i != j && arr(i) != map(j)) {
+            val k1 = findMin(2, i, j)
+            var k = k1 + 1
+            while (k < arr.length) {
+              if (k != i && k != j && arr(k) != map(k1) && check(arr(k1), arr(k), constraints)) {
 
-          val k1 = findMin(2, i, j)
-          var k = k1 + 1
-          while (k < arr.length) {
-            if (k != i && k != j && arr(k) != map(k1)) {
+                val p1 = findMin(3, i, j, k1, k)
+                var p = p1 + 1
+                while (p < arr.length) {
+                  if (p != i && p != j && p != k && p != k1 && arr(p) != map(p1) && check(arr(p), arr(p1), constraints)) {
 
-              val p1 = findMin(3, i, j, k1, k)
-              var p = p1 + 1
-              while (p < arr.length) {
-                if (p != i && p != j && p != k && p != k1 && arr(p) != map(p1)) {
-
-                  val len = length(arr(0), arr(i)) + length(arr(1), arr(j)) + length(arr(k1), arr(k)) + length(arr(p1), arr(p))
-                  if (len < bestLength) {
-                    bestLength = len
-                    best = List((arr(0), arr(i)), (arr(1), arr(j)), (arr(k1), arr(k)), (arr(p1), arr(p)))
+                    val len = length(arr(0), arr(i)) + length(arr(1), arr(j)) + length(arr(k1), arr(k)) + length(arr(p1), arr(p))
+                    if (len < bestLength) {
+                      bestLength = len
+                      best = List((arr(0), arr(i)), (arr(1), arr(j)), (arr(k1), arr(k)), (arr(p1), arr(p)))
+                    }
                   }
+
+                  p += 1
                 }
-
-                p += 1
               }
+
+              k += 1
             }
-
-            k += 1
           }
-        }
 
-        j += 1
+          j += 1
+        }
       }
 
       i += 1

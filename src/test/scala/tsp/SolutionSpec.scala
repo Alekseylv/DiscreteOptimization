@@ -11,32 +11,32 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
 
   val fileName = "someRandomFileName.txt"
 
-  def delete {
+  def deleteFiles() {
     new java.io.File("cache" + java.io.File.separator + fileName).delete()
   }
 
   property("Solution must have proper length") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       TspSolver.solveIt(fileName, x._1, x._2)._2.toSet.size == x._1
   }
 
   property("Solution value must be higher than zero") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       TspSolver.solveIt(fileName, x._1, x._2)._1 > 0
   }
 
   property("Solution must contain only unique vertices in domain [0, N)") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       val solution = TspSolver.solveIt(fileName, x._1, x._2)
       isValid(solution._2, x._1)
   }
 
   property("Permutations should not contain edges passed as arguments") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       val solver = new TwoOpt(fileName, x._1, x._2)
 
       solver.solutionSequence
@@ -51,7 +51,7 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
 
   property("Permutations must have 4 edges") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       val solver = new TwoOpt(fileName, x._1, x._2)
 
       solver.solutionSequence
@@ -64,7 +64,7 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
 
   property("Permutations must contain vertices passed as arguments") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       val solver = new TwoOpt(fileName, x._1, x._2)
 
       solver.solutionSequence
@@ -83,7 +83,7 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
 
   property("Empty swap must result in the same arrays") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       val solver = new TwoOpt(fileName, x._1, x._2)
 
       solver.solutionSequence
@@ -99,7 +99,7 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
 
   property("Applying permutation should result in expected value change") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       val solver = new TwoOpt(fileName, x._1, x._2)
 
       val solution = solver.solution
@@ -122,7 +122,7 @@ object SolutionSpec extends Properties("Specification for traveling salesmen pro
 
   property("Permutation should not contain invalid tours") = forAll(graphPlots) {
     x =>
-      delete
+      deleteFiles()
       val solver = new TwoOpt(fileName, x._1, x._2)
 
       solver.solution
