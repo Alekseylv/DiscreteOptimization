@@ -24,15 +24,13 @@ trait ClosestNeighbourIndex {
 
   def createAndCompute(file: File): Array[Set[Int]] = {
     file.getParentFile.mkdirs()
-    file.createNewFile()
 
-    val sorted = (0 to N - 1) map {
-      x =>
-        ((0 to N - 1).filter(x != _).sortBy(length(x, _)) take size).toSet
+    val sorted = (0 to N - 1) map { x =>
+      ((0 to N - 1).filter(x != _).sortBy(length(x, _)) take size).toSet
     }
 
     val string = sorted map (_ mkString " ") mkString "\n"
-    val out = new java.io.PrintWriter(file)
+    val out = new java.io.PrintWriter(file.getName)
 
     try out write string
     finally out.close()
