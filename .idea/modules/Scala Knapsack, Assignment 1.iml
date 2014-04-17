@@ -34,14 +34,12 @@
     <orderEntry type="module-library">
       <library name="SBT: unmanaged-jars">
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../lib/com.google.ortools.jar!/" />
           <root url="jar://$MODULE_DIR$/../../lib/stdlib-package.jar!/" />
           <root url="jar://$MODULE_DIR$/../../lib/algs4-package.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../lib/algs4-package.jar!/" />
-          <root url="jar://$MODULE_DIR$/../../lib/stdlib-package.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
