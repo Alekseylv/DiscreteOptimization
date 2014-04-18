@@ -6,7 +6,23 @@ import Solver._
 /**
  * Created by Aleksey on 18/04/14.
  */
-class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers: Array[Customer]) extends ClosestNeighbours {
+class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers: Array[Customer], name: String) extends ClosestNeighbours {
+
+  val solver = new MPSolver("IntegerProgrammingExample", MPSolver.getSolverEnum("CBC_MIXED_INTEGER_PROGRAMMING"))
+  assert(solver != null)
+
+  solver.setTimeLimit(1000 * 60 * 2)
+
+  val (wareIndex, custIndex) = getIndex(name)
+
+  assert(wareIndex.length == N)
+  assert(custIndex.length == M)
+
+  // variables in the MIP
+  val warehouses = solver.makeBoolVarArray(N)
+  val assignment = Array.fill(M)(solver.makeBoolVarArray(size))
+
+  val inf = MPSolver.infinity()
 
   def findVariableIndex(arr: Array[Int], to: Int): Int = {
     var i = 0
@@ -18,21 +34,8 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
     throw new Error("Could not find index")
   }
 
-  def solution(name: String): Solution = {
-
-    val solver = new MPSolver("IntegerProgrammingExample", MPSolver.getSolverEnum("CBC_MIXED_INTEGER_PROGRAMMING"))
-    assert(solver != null)
-
-    val (wareIndex, custIndex) = getIndex(name)
-
-    assert(wareIndex.length == N)
-    assert(custIndex.length == M)
-
-    val warehouses = solver.makeBoolVarArray(N)
-    val assignment = Array.fill(M)(solver.makeBoolVarArray(size))
-
-    val inf = MPSolver.infinity()
-
+  def createProblem() = {
+    
     // redundant
     val demandConstraint = solver.makeConstraint(customers.foldRight(0.0)(_._1 + _), inf)
 
@@ -74,14 +77,22 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
       i += 1
     }
 
-    solver.setTimeLimit(1000 * 60 * 10)
+    solver
+  }
+
+  def solve(solver: MPSolver) = {
     val status = solver.solve()
-
+    //    println(solver.wallTime())
     if (status == MPSolver.ABNORMAL || status == MPSolver.UNBOUNDED || status == MPSolver.INFEASIBLE) throw new Error("Bad model")
+    solver
+  }
 
-    //        println(solver.wallTime())
-    //   println(warehouses.map(_.solutionValue()).toList)
-
+  def solutionValue(solver: MPSolver) = {
+    //     println(warehouses.map(_.solutionValue()).toList)
     (solver.objective().value(), (0 to assignment.length - 1) map (fx => custIndex(fx)(findTrue(assignment(fx)))))
+  }
+
+  def solution(): Solution = {
+    solutionValue(solve(createProblem()))
   }
 }
