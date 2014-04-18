@@ -94,7 +94,7 @@ object Solver {
       val capacity = solver.makeConstraint(0, facilities(i)._2)
       var j = 0
       while (j < M) {
-        capacity.setCoefficient(assignment(j)(i), 1)
+        capacity.setCoefficient(assignment(j)(i), customers(j)._1)
         j += 1
       }
 
@@ -125,6 +125,7 @@ object Solver {
     val status = solver.solve()
     if (status == MPSolver.ABNORMAL || status == MPSolver.UNBOUNDED || status == MPSolver.INFEASIBLE) throw new Error("Bad model")
 
+    //    println(solver.wallTime())
     //   println(warehouses.map(_.solutionValue()).toList)
 
     (solver.objective().value(), assignment map findTrue)

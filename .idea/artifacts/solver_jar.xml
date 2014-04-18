@@ -6,6 +6,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/stdlib-package.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.10.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/algs4-package.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/com.google.ortools.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
