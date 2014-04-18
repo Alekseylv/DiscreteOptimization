@@ -14,7 +14,7 @@ trait ClosestNeighbours {
   def facilities: Array[Facility]
   def customers: Array[Customer]
 
-  val size = 30
+  val size = 40
 
   def getIndex(name: String): (Array[Array[Int]], Array[Array[Int]]) = {
     val file = new File("cache/" + name)

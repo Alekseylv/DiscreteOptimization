@@ -33,10 +33,13 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
 
     val inf = MPSolver.infinity()
 
+    // redundant
+    val demandConstraint = solver.makeConstraint(customers.foldRight(0.0)(_._1 + _), inf)
 
     //minimize
     var i = 0
     while (i < N) {
+      demandConstraint.setCoefficient(warehouses(i), facilities(i)._2)
       solver.objective().setCoefficient(warehouses(i), facilities(i)._1)
 
       val capacity = solver.makeConstraint(0, facilities(i)._2)
@@ -71,7 +74,7 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
       i += 1
     }
 
-    solver.setTimeLimit(1000 * 60 * 5)
+    solver.setTimeLimit(1000 * 60 * 10)
     val status = solver.solve()
 
     if (status == MPSolver.ABNORMAL || status == MPSolver.UNBOUNDED || status == MPSolver.INFEASIBLE) throw new Error("Bad model")
