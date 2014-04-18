@@ -6,9 +6,8 @@
     <bookmark url="jar://$PROJECT_DIR$/lib/algs4-package.jar!/edu/princeton/cs/algs4/Digraph.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="added a redundant constraint to make CBC faster for problem 4">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/facility/ClosestNeighbours.scala" afterPath="$PROJECT_DIR$/src/main/scala/facility/ClosestNeighbours.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/facility/MIP.scala" afterPath="$PROJECT_DIR$/src/main/scala/facility/MIP.scala" />
+    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="refactored MIP solver">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" afterPath="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Scala Knapsack, Assignment 1.iws" />
@@ -32,21 +31,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Solver.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Solver.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/facility/Solver.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state vertical-scroll-proportion="1.2666667" vertical-offset="0" max-vertical-offset="1260">
+              <caret line="57" column="1" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MIP.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MIP.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/facility/MIP.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0649546" vertical-offset="0" max-vertical-offset="1560">
-              <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               <folding>
                 <element signature="e#18#65#0" expanded="true" />
               </folding>
@@ -136,10 +135,10 @@
         <option value="$PROJECT_DIR$/src/test/scala/tsp/DataGen.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/tsp/SolutionSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tsp/TwoOpt.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/facility/ClosestNeighbours.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/facility/Config.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/facility/MIP.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" />
       </list>
     </option>
   </component>
@@ -755,7 +754,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="795" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -763,12 +762,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35561877" sideWeight="0.41977078" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21489972" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827586" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3133903" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31294453" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23567335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23567335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29302987" sideWeight="0.5802292" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -820,7 +819,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added some tests for crossed edges optimization" />
     <MESSAGE value="added a single two opt iteration to solver" />
     <MESSAGE value="refactor of solution improvement" />
     <MESSAGE value="added pre computer distance matrix implementation" />
@@ -845,7 +843,8 @@
     <MESSAGE value="moved MIP to seperate class" />
     <MESSAGE value="changed model to consider only $size closest facilities for a customer" />
     <MESSAGE value="added a redundant constraint to make CBC faster for problem 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a redundant constraint to make CBC faster for problem 4" />
+    <MESSAGE value="refactored MIP solver" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored MIP solver" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1191,14 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/facility/Solver.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/Predef.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3323263" vertical-offset="2030" max-vertical-offset="6840">
@@ -1227,11 +1218,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/facility/MIP.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0649546" vertical-offset="0" max-vertical-offset="1560">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           <folding>
             <element signature="e#18#65#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/facility/Solver.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2666667" vertical-offset="0" max-vertical-offset="1260">
+          <caret line="57" column="1" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

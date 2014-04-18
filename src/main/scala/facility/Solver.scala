@@ -45,7 +45,7 @@ object Solver {
       assert(facilities.length == N)
       assert(customers.length == M)
 
-      println(prepareSolution(new MIP(N, M, facilities.toArray, customers.toArray).solution(args(0))))
+      println(prepareSolution(new MIP(N, M, facilities.toArray, customers.toArray, args(0)).solution()))
 
       source.close()
     }
