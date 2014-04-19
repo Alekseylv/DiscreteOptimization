@@ -45,7 +45,7 @@ object Solver {
       assert(facilities.length == N)
       assert(customers.length == M)
 
-      println(prepareSolution(new MIP(N, M, facilities.toArray, customers.toArray, args(0)).solution()))
+      println(prepareSolution(new LNS(N, M, facilities.toArray, customers.toArray, args(0)).solution()))
 
       source.close()
     }
@@ -73,6 +73,6 @@ object Solver {
       i += 1
     }
 
-    throw new Error("Customer not assigned to a facility")
+    -1
   }
 }

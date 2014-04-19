@@ -35,14 +35,19 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
   }
 
   def createProblem() = {
-    
+
     // redundant
     val demandConstraint = solver.makeConstraint(customers.foldRight(0.0)(_._1 + _), inf)
 
-    //minimize
     var i = 0
     while (i < N) {
       demandConstraint.setCoefficient(warehouses(i), facilities(i)._2)
+      i += 1
+    }
+
+    //minimize
+    i = 0
+    while (i < N) {
       solver.objective().setCoefficient(warehouses(i), facilities(i)._1)
 
       val capacity = solver.makeConstraint(0, facilities(i)._2)
@@ -89,7 +94,10 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
 
   def solutionValue(solver: MPSolver) = {
     //     println(warehouses.map(_.solutionValue()).toList)
-    (solver.objective().value(), (0 to assignment.length - 1) map (fx => custIndex(fx)(findTrue(assignment(fx)))))
+    (solver.objective().value(), (0 to assignment.length - 1) map { fx =>
+      val index = findTrue(assignment(fx))
+      if (index > -1) custIndex(fx)(index) else -1
+    })
   }
 
   def solution(): Solution = {
