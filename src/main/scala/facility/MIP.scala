@@ -87,7 +87,7 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
 
   def solve(solver: MPSolver) = {
     val status = solver.solve()
-    //    println(solver.wallTime())
+    println(", PRT = " + solver.wallTime())
     if (status == MPSolver.ABNORMAL || status == MPSolver.UNBOUNDED || status == MPSolver.INFEASIBLE) throw new Error("Bad model")
     solver
   }

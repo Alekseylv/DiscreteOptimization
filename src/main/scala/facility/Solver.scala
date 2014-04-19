@@ -45,7 +45,11 @@ object Solver {
       assert(facilities.length == N)
       assert(customers.length == M)
 
+      val start = System.currentTimeMillis()
+
       println(prepareSolution(new LNS(N, M, facilities.toArray, customers.toArray, args(0)).solution()))
+
+      println("Time: " + (System.currentTimeMillis() - start))
 
       source.close()
     }
