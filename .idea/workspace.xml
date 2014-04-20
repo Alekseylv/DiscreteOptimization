@@ -6,8 +6,10 @@
     <bookmark url="jar://$PROJECT_DIR$/lib/algs4-package.jar!/edu/princeton/cs/algs4/Digraph.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="added initial LNS implementation">
+    <list default="true" id="5cca75ee-e2ab-4f7a-b2e0-5e891c44f438" name="Default" comment="refactored LNS">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/facility/SolutionFromFile.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/facility/LNS.scala" afterPath="$PROJECT_DIR$/src/main/scala/facility/LNS.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/main/scala/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/facility/MIP.scala" afterPath="$PROJECT_DIR$/src/main/scala/facility/MIP.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" afterPath="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -36,9 +38,41 @@
       <file leaf-file-name="Solver.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/facility/Solver.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1320">
-              <caret line="51" column="13" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
+              <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SolutionFromFile.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/facility/SolutionFromFile.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MANIFEST.MF" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/META-INF/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.023006136" vertical-offset="0" max-vertical-offset="652">
+              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClosestNeighbours.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/facility/ClosestNeighbours.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+              <folding>
+                <element signature="e#18#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,30 +80,18 @@
       <file leaf-file-name="MIP.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/facility/MIP.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1665">
-              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="1665">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LNS.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LNS.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/facility/LNS.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41087613" vertical-offset="883" max-vertical-offset="2985">
-              <caret line="77" column="17" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
-              <folding>
-                <element signature="e#62#86#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MPSolver.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/com.google.ortools.jar!/com/google/ortools/linearsolver/MPSolver.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="2145">
-              <caret line="92" column="65" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="2955">
+              <caret line="119" column="26" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -88,7 +110,7 @@
       <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="180">
               <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
               <folding />
             </state>
@@ -108,7 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/infratest/DataGen.scala" />
         <option value="$PROJECT_DIR$/src/test/infratest/ParseSpecification.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/solvers/Solver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/solvers/DPTable.scala" />
@@ -133,7 +154,6 @@
         <option value="$PROJECT_DIR$/src/main/scala/coloring/ColoringSolver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/GreedyIterative.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/coloring/GreedySolve.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/test/scala/tsp/SolutionImprovement.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/coloring/SolutionSpecification.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/tsp/DistanceMatrix.scala" />
@@ -156,9 +176,11 @@
         <option value="$PROJECT_DIR$/src/main/scala/facility/Config.scala" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/scala/facility/ClosestNeighbours.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/facility/MIP.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/facility/Solver.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/facility/LNS.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/facility/SolutionFromFile.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/META-INF/MANIFEST.MF" />
       </list>
     </option>
   </component>
@@ -254,7 +276,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -365,6 +387,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scala Knapsack, Assignment 1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ScalaSolvers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="facility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -385,7 +433,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -559,14 +607,6 @@
       <setting name="worksheetField" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
     <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <extension name="scalaCoverage" />
@@ -580,6 +620,14 @@
       <setting name="testName" value="" />
       <setting name="testKind" value="Class" />
       <setting name="showProgressMessages" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -610,6 +658,15 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="ScalaScriptRunConfiguration" factoryName="Scala Script">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="consoleargs" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <method />
+    </configuration>
     <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <extension name="scalaCoverage" />
@@ -623,15 +680,6 @@
       <setting name="testName" value="" />
       <setting name="testKind" value="Class" />
       <setting name="showProgressMessages" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="ScalaScriptRunConfiguration" factoryName="Scala Script">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="consoleargs" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
       <method />
     </configuration>
     <configuration default="false" name="ParseSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
@@ -764,16 +812,16 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.260745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29302987" sideWeight="0.5802292" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -789,14 +837,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827586" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31294453" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295129" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29302987" sideWeight="0.5802292" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -816,7 +864,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="matrix test" />
     <MESSAGE value="added closest neighbour calculations and saving them to cache file" />
     <MESSAGE value="fixed IO errors" />
     <MESSAGE value="refactored everything&#10;moved common operations to object&#10;improved solution improvement performance&#10;2-opt is broken now, need to implement a backwards map from vertex to index in  solution sequence" />
@@ -841,7 +888,8 @@
     <MESSAGE value="fixed compile error" />
     <MESSAGE value="updated readme" />
     <MESSAGE value="added initial LNS implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added initial LNS implementation" />
+    <MESSAGE value="refactored LNS" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored LNS" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -863,20 +911,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/coloring/SimulatedAnnealingSolve.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="690">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/tsp/SimulatedAnnealing.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="387" max-vertical-offset="1035">
-          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/collection/generic/CanBuildFrom.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64788735" vertical-offset="36" max-vertical-offset="675">
@@ -1074,22 +1108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/com.google.ortools.jar!/com/google/ortools/linearsolver/MPSolver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="2145">
-          <caret line="92" column="65" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/com.google.ortools.jar!/com/google/ortools/linearsolver/MPSolverParameters.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1095">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.3-sources.jar!/scala/collection/immutable/Set.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3323486" vertical-offset="360" max-vertical-offset="2100">
@@ -1136,7 +1154,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33282208" vertical-offset="473" max-vertical-offset="1905">
           <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1144,7 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51687115" vertical-offset="1208" max-vertical-offset="4095">
           <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="111" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1152,7 +1168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.946319" vertical-offset="570" max-vertical-offset="11790">
           <caret line="264" column="12" selection-start-line="264" selection-start-column="12" selection-end-line="264" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,7 +1175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46666667" vertical-offset="0" max-vertical-offset="16605">
           <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1168,7 +1182,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="266.6889" vertical-offset="0" max-vertical-offset="180105">
           <caret line="12001" column="0" selection-start-line="12001" selection-start-column="0" selection-end-line="12001" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1176,7 +1189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="60105">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,7 +1196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="52605">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,14 +1203,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43353474" vertical-offset="7288" max-vertical-offset="7950">
           <caret line="516" column="6" selection-start-line="516" selection-start-column="6" selection-end-line="516" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/facility/ClosestNeighbours.scala">
+    <entry file="jar://$PROJECT_DIR$/lib/com.google.ortools.jar!/com/google/ortools/linearsolver/MPSolverParameters.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33186814" vertical-offset="89" max-vertical-offset="915">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1095">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1212,29 +1222,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/facility/ClosestNeighbours.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding>
+            <element signature="e#18#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/facility/MIP.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1665">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="1665">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/com.google.ortools.jar!/com/google/ortools/linearsolver/MPSolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2040817" vertical-offset="72" max-vertical-offset="2145">
+          <caret line="52" column="53" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/facility/Solver.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1320">
-          <caret line="51" column="13" selection-start-line="51" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/facility/LNS.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41087613" vertical-offset="883" max-vertical-offset="2985">
-          <caret line="77" column="17" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
-          <folding>
-            <element signature="e#62#86#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="2955">
+          <caret line="119" column="26" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/facility/SolutionFromFile.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023006136" vertical-offset="0" max-vertical-offset="652">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
