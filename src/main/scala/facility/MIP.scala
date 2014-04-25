@@ -11,7 +11,7 @@ class MIP(val N: Int, val M: Int, val facilities: Array[Facility], val customers
   val solver = new MPSolver("IntegerProgrammingExample", MPSolver.getSolverEnum("CBC_MIXED_INTEGER_PROGRAMMING"))
   assert(solver != null)
 
-  solver.setTimeLimit(1000 * 60 * 60)
+  solver.setTimeLimit(1000 * 60 * 80)
 
   val (wareIndex, custIndex) = getIndex(name)
 

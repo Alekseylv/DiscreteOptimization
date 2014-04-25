@@ -75,12 +75,14 @@ class LNS(N: Int, M: Int, facilities: Array[Facility], customers: Array[Customer
     println("initial solution done")
 
     p = 0
-    while (p < 500) {
+    while (p < 100) {
       val wr = scala.util.Random.nextInt(N)
 
       val customerNeighbourhood = wareIndex(wr)
 
       val warehouseNeighbourhood = customerNeighbourhood.foldLeft(immutable.Set(wr))((a, b) => a ++ custIndex(b)).toArray
+
+      //      val warehouseNeighbourhood = (customerNeighbourhood.map(customerAssignments.apply).toSet ++ custIndex(customerNeighbourhood(0))).toArray
 
       print("p = " + p + ", WRN = " + warehouseNeighbourhood.length + ", CSN = " + customerNeighbourhood.length)
 
@@ -118,7 +120,7 @@ class LNS(N: Int, M: Int, facilities: Array[Facility], customers: Array[Customer
     val wareHouseCapacities = facilities map (_._2.toFloat)
 
     val solver = new MPSolver("", MPSolver.getSolverEnum("CBC_MIXED_INTEGER_PROGRAMMING"))
-    solver.setTimeLimit(1000 * 60 * 6)
+    solver.setTimeLimit(1000 * 60 * 7)
 
     val warehouseVariables = solver.makeBoolVarArray(warehouseNeighbourhood.length)
     val customerVariables = Array.fill(customerNeighbourhood.length)(solver.makeBoolVarArray(warehouseNeighbourhood.length))
